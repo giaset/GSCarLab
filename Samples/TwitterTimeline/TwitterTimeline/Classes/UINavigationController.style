@@ -1,12 +1,14 @@
 {
     "$navigation_title_label" : {
-        "fontName" : "Helvetica",
-        "fontSize" : "18",
+        "fontName" : "Helvetica-Bold",
+        "fontSize" : "16",
         "textColor" : "blackColor"
     },
     
     "UINavigationController" : {
         "navigationBar" : {
+            "translucent" : 0,
+            "barTintColor" : "#f5f5f5",
             "titleView" : {
                 "@inherits" : [ "$navigation_title_label" ],
                 "backgroundColor" : "clearColor",

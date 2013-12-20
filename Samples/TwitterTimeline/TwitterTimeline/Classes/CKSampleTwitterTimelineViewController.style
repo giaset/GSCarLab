@@ -5,7 +5,7 @@
         "style" : "UITableViewStyleGrouped",
         
         "tableView" : {
-            "backgroundColor" : "darkGrayColor"
+            "backgroundColor" : "#333333"
         },
         
         "CKTableViewCellController" : {
@@ -14,14 +14,16 @@
             "UITableViewCell" : {
                 "backgroundColor" : "whiteColor",
                 "textLabel,detailTextLabel" : {
-                    "fontSize" : 18,
+                    "fontSize" : 16,
                     "backgroundColor" : "clearColor"
                 },
                 "imageView" : {
                     "clipsToBounds" : 1,
                     "layer" : {
                         // this needs to be 50% of height/width
-                        "cornerRadius" : 20
+                        "cornerRadius" : 22,
+                        "borderWidth" : 0.7,
+                        "borderColor" : "lightGrayColor"
                     }
                 }
             }

@@ -46,13 +46,13 @@
                                                                                            subtitle:tweet.message
                                                                                        defaultImage:[UIImage imageNamed:@"default_avatar"]
                                                                                            imageURL:tweet.imageUrl
-                                                                                          imageSize:CGSizeMake(40,40)
+                                                                                          imageSize:CGSizeMake(44,44)
                                                                                              action:nil];
     
     //Customize the layout to keep the cell imageview on top with insets
     [cellController setLayoutBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
         [controller performLayout];
-        cell.imageView.frame = CGRectMake(controller.contentInsets.left,controller.contentInsets.top,40,40);
+        cell.imageView.frame = CGRectMake(controller.contentInsets.left,controller.contentInsets.top,44,44);
     }];
     
     return cellController;
