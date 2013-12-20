@@ -10,7 +10,6 @@
         
         "CKTableViewCellController" : {
             "cellStyle" : "CKTableViewCellStyleSubtitle2",
-            "flags" : "CKTableViewCellFlagNone",
             "accessoryType" : "UITableViewCellAccessoryNone",
             "contentInsets" : "15 15 15 15",
             "UITableViewCell" : {
