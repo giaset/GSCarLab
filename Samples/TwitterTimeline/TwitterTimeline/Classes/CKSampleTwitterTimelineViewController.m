@@ -10,6 +10,7 @@
 
 @interface CKSampleTwitterTimelineViewController ()
 @property(nonatomic,retain) CKSampleTwitterTimelineModel* timeline;
+@property(nonatomic,retain) CKSampleTwitterTweetModel* selectedTweet;
 @end
 
 @implementation CKSampleTwitterTimelineViewController
@@ -18,6 +19,7 @@
 - (id)initWithTimeline:(CKSampleTwitterTimelineModel*)theTimeline{
     self = [super init];
     self.timeline = theTimeline;
+    self.selectedTweet = nil;
     [self setup];
     return self;
 }
@@ -41,18 +43,35 @@
 
 
 - (CKTableViewCellController*)cellControllerForTweet:(CKSampleTwitterTweetModel*)tweet{
+    __unsafe_unretained CKSampleTwitterTimelineViewController *bself = self;
+    
+    //Create block that will be executed when cell is clicked
+    void (^clickBlock)(CKTableViewCellController*) = ^(CKTableViewCellController *controller){
+        CKSampleTwitterTweetModel *thisTweet = (CKSampleTwitterTweetModel *) controller.value;
+        bself.selectedTweet = thisTweet;
+    };
+    
     //Setup the cell controller to display a tweet model
     CKTableViewCellController* cellController =  [CKTableViewCellController cellControllerWithTitle:tweet.name
                                                                                            subtitle:tweet.message
                                                                                        defaultImage:[UIImage imageNamed:@"default_avatar"]
                                                                                            imageURL:tweet.imageUrl
                                                                                           imageSize:CGSizeMake(44,44)
-                                                                                             action:nil];
+                                                                                             action:clickBlock];
+    cellController.value = tweet;
     
     //Customize the layout to keep the cell imageview on top with insets
     [cellController setLayoutBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
         [controller performLayout];
         cell.imageView.frame = CGRectMake(controller.contentInsets.left,controller.contentInsets.top,44,44);
+    }];
+    
+    //Set setup block
+    [cellController setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
+        CKSampleTwitterTweetModel *thisTweet = (CKSampleTwitterTweetModel *) controller.value;
+        
+        CKImageView *img = (CKImageView *) cell.imageView;
+        img.imageURL = thisTweet.imageUrl;
     }];
     
     return cellController;
