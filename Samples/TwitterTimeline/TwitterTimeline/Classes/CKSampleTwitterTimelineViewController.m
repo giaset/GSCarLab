@@ -48,7 +48,7 @@
     //Create block that will be executed when cell is clicked
     void (^clickBlock)(CKTableViewCellController*) = ^(CKTableViewCellController *controller){
         CKSampleTwitterTweetModel *thisTweet = (CKSampleTwitterTweetModel *) controller.value;
-        bself.selectedTweet = thisTweet;
+        bself.selectedTweet = (bself.selectedTweet == thisTweet) ? nil : thisTweet;
     };
     
     //Setup the cell controller to display a tweet model
@@ -66,42 +66,52 @@
         cell.imageView.frame = CGRectMake(controller.contentInsets.left,controller.contentInsets.top,44,44);
     }];
     
-    [cellController setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
+    //Setup block
+    [cellController setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {        
         CKSampleTwitterTweetModel *thisTweet = (CKSampleTwitterTweetModel *) controller.value;
         
-        UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0,cell.frame.size.height-44,320,44)];
-        toolbar.tintColor = [UIColor whiteColor];
-        toolbar.barTintColor = [UIColor redColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UIBarButtonItem *previousButton = [[UIBarButtonItem alloc]initWithTitle:_(@"Previous") style:UIBarButtonItemStyleBordered block:^{
-        }];
-        
-        UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]initWithTitle:_(@"Next") style:UIBarButtonItemStyleBordered block:^{
-        }];
-        
-        UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone block:^{
-        }];
-        
-        NSArray *itemsArray = [NSArray arrayWithObjects:previousButton, nextButton, flexButton, doneButton, nil];
-        
-        [toolbar setItems:itemsArray];
-        
+        UIToolbar *toolbar = [bself customToolbarForTweet:thisTweet];
         [cell.contentView addSubview:toolbar];
         
         [cell beginBindingsContextByRemovingPreviousBindings];
         
         [bself bind:@"selectedTweet" executeBlockImmediatly:YES withBlock:^(id value) {
-            cell.backgroundColor = (bself.selectedTweet == thisTweet) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
-            cell.textLabel.textColor = (bself.selectedTweet == thisTweet) ? [UIColor whiteColor] : [UIColor blackColor];
-            cell.detailTextLabel.textColor = (bself.selectedTweet == thisTweet) ? [UIColor whiteColor] : [UIColor blackColor];
-            toolbar.hidden = !(bself.selectedTweet == thisTweet);
+            [UIView animateWithDuration:0.5f animations:^{
+                cell.backgroundColor = (bself.selectedTweet == thisTweet) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
+                cell.textLabel.textColor = (bself.selectedTweet == thisTweet) ? [UIColor whiteColor] : [UIColor blackColor];
+                cell.detailTextLabel.textColor = (bself.selectedTweet == thisTweet) ? [UIColor whiteColor] : [UIColor blackColor];
+                toolbar.hidden = !(bself.selectedTweet == thisTweet);
+            }];
         }];
         
         [cell endBindingsContext];
     }];
     
     return cellController;
+}
+
+- (UIToolbar *)customToolbarForTweet:(CKSampleTwitterTweetModel*)tweet{
+    UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolbar.tintColor = [UIColor whiteColor];
+    toolbar.barTintColor = [UIColor redColor];
+    
+    UIBarButtonItem *previousButton = [[UIBarButtonItem alloc]initWithTitle:_(@"Previous") style:UIBarButtonItemStyleBordered block:^{
+    }];
+    
+    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]initWithTitle:_(@"Next") style:UIBarButtonItemStyleBordered block:^{
+    }];
+    
+    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone block:^{
+    }];
+    
+    NSArray *itemsArray = [NSArray arrayWithObjects:previousButton, nextButton, flexButton, doneButton, nil];
+    
+    [toolbar setItems:itemsArray];
+    
+    return toolbar;
 }
 
 @end
