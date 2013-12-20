@@ -1,53 +1,26 @@
 {
-    "$big_font" : {
-        "fontSize" : 20
-    },
-    
-    "$background" : {
-        "backgroundColor" : "clearColor"
-    },
-    
-    "$lightGradient" : {
-        "backgroundGradientColors" : [ "0.986 0.986 0.986 1", "0.884 0.884 0.884 1" ],
-		"backgroundGradientLocations" : [ "0","1" ],
-		"embossTopColor" : "0.986 0.986 0.986 0.5",
-		"embossBottomColor" : "whiteColor"
-    },
-    
     "CKSampleTwitterTimelineViewController" : {
+        "tableViewInsets" : "-36 0 0 0",
         "rowInsertAnimation" : "UITableViewRowAnimationTop",
         "style" : "UITableViewStyleGrouped",
         
         "tableView" : {
-            "backgroundColor" : "0.79 0.79 0.79 1"  
+            "backgroundColor" : "#e4e4e4"
         },
         
         "CKTableViewCellController" : {
             "cellStyle" : "CKTableViewCellStyleSubtitle2",
-            "contentInsets" : "10 10 10 10",
+            "contentInsets" : "15 15 15 15",
             "UITableViewCell" : {
-                "backgroundView" : {
-                    "@inherits" : [ "$lightGradient" ],
-                    "borderColor" : "lightGrayColor",
-                    "borderWidth" : 1,
-                    
-                    "borderShadowColor" : "0 0 0 0.6",
-                    "borderShadowRadius" : 6,
-                    "borderShadowOffset" : "0 0"
-                },
+                "backgroundColor" : "whiteColor",
                 "textLabel,detailTextLabel" : {
-                    "@inherits" : [ "$big_font", "$background" ]
+                    "fontSize" : 18,
+                    "backgroundColor" : "clearColor"
                 },
                 "imageView" : {
-                    "@inherits" : [ "$background" ],
+                    "backgroundColor" : "clearColor",
                     "clipsToBounds" : 0,
-                    "opaque" : 1,
-                    "layer" : {
-                        "shadowColor" : "blackColor",
-                        "shadowRadius" : 2,
-                        "shadowOffset" : "0 2",
-                        "shadowOpacity" : "0.8"
-                    }
+                    "opaque" : 1
                 }
             }
         }

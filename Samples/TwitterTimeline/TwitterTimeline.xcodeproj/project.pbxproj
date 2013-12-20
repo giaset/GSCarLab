@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68FC1E931864B386009783C3 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FC1E921864B386009783C3 /* default_avatar.png */; };
 		9604728D163EEB4A00B39F8F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9604728C163EEB4A00B39F8F /* Twitter.framework */; };
 		96047294163EF69A00B39F8F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96047293163EF69A00B39F8F /* Accounts.framework */; };
 		9629E83E1587DFC500593E62 /* TwitterTimeline.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9629E83D1587DFC500593E62 /* TwitterTimeline.strings */; };
@@ -15,7 +16,6 @@
 		963AB7EA179D68E90076925C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AB7E9179D68E90076925C /* Security.framework */; };
 		963BF4831760DE8E003E3D94 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963BF4821760DE8E003E3D94 /* AdSupport.framework */; };
 		963BF4901760DEFD003E3D94 /* AppCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963BF48E1760DEFC003E3D94 /* AppCoreKit.framework */; };
-		965DB125159B685B00D293B2 /* background_nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 965DB124159B685B00D293B2 /* background_nav.png */; };
 		9691A4DD158246D300E4E6E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9691A4DC158246D300E4E6E8 /* UIKit.framework */; };
 		9691A4DF158246D300E4E6E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9691A4DE158246D300E4E6E8 /* Foundation.framework */; };
 		9691A4E1158246D300E4E6E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9691A4E0158246D300E4E6E8 /* CoreGraphics.framework */; };
@@ -36,17 +36,16 @@
 		9691A52D15824C9100E4E6E8 /* CKSampleTwitterDataSources.mappings in Resources */ = {isa = PBXBuildFile; fileRef = 9691A52B15824C9100E4E6E8 /* CKSampleTwitterDataSources.mappings */; };
 		9691A52E15824C9100E4E6E8 /* CKSampleTwitterTimelineViewController.style in Resources */ = {isa = PBXBuildFile; fileRef = 9691A52C15824C9100E4E6E8 /* CKSampleTwitterTimelineViewController.style */; };
 		9691A53415824FB000E4E6E8 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9691A53315824FB000E4E6E8 /* libstdc++.dylib */; };
-		9691A5381582531700E4E6E8 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9691A5371582531700E4E6E8 /* default_avatar.png */; };
 		96951A3115E69AE800408239 /* AppCoreKit.conf in Resources */ = {isa = PBXBuildFile; fileRef = 96951A3015E69AE800408239 /* AppCoreKit.conf */; };
 		96DC22CC17622CE20058BA15 /* CKSampleTwitterTweetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DC22CB17622CE20058BA15 /* CKSampleTwitterTweetModel.m */; };
 		96DC22CF17622CF60058BA15 /* CKSampleTwitterTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DC22CE17622CF60058BA15 /* CKSampleTwitterTimelineModel.m */; };
 		96DC22D217622D310058BA15 /* CKSampleTwitterTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DC22D117622D310058BA15 /* CKSampleTwitterTimelineViewController.m */; };
 		96DC22D417622EE40058BA15 /* UINavigationController.style in Resources */ = {isa = PBXBuildFile; fileRef = 96DC22D317622EE40058BA15 /* UINavigationController.style */; };
 		96DC22D617622F5E0058BA15 /* Stylesheet.style in Resources */ = {isa = PBXBuildFile; fileRef = 96DC22D517622F5E0058BA15 /* Stylesheet.style */; };
-		96F5C12515E82931007121C6 /* background_nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F5C12415E82931007121C6 /* background_nav@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68FC1E921864B386009783C3 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_avatar.png; path = Resources/default_avatar.png; sourceTree = "<group>"; };
 		9604728C163EEB4A00B39F8F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		96047293163EF69A00B39F8F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9629E83D1587DFC500593E62 /* TwitterTimeline.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = TwitterTimeline.strings; path = Resources/TwitterTimeline.strings; sourceTree = "<group>"; };
@@ -55,7 +54,6 @@
 		963AB7E9179D68E90076925C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		963BF4821760DE8E003E3D94 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		963BF48E1760DEFC003E3D94 /* AppCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCoreKit.framework; path = ../../Frameworks/AppCoreKit.framework; sourceTree = "<group>"; };
-		965DB124159B685B00D293B2 /* background_nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_nav.png; path = Resources/background_nav.png; sourceTree = "<group>"; };
 		9691A4D8158246D300E4E6E8 /* TwitterTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9691A4DC158246D300E4E6E8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9691A4DE158246D300E4E6E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,7 +80,6 @@
 		9691A52B15824C9100E4E6E8 /* CKSampleTwitterDataSources.mappings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CKSampleTwitterDataSources.mappings; path = Classes/CKSampleTwitterDataSources.mappings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		9691A52C15824C9100E4E6E8 /* CKSampleTwitterTimelineViewController.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CKSampleTwitterTimelineViewController.style; path = Classes/CKSampleTwitterTimelineViewController.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		9691A53315824FB000E4E6E8 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
-		9691A5371582531700E4E6E8 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_avatar.png; path = Resources/default_avatar.png; sourceTree = "<group>"; };
 		96951A3015E69AE800408239 /* AppCoreKit.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AppCoreKit.conf; path = Classes/AppCoreKit.conf; sourceTree = "<group>"; };
 		96DC22CA17622CE20058BA15 /* CKSampleTwitterTweetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKSampleTwitterTweetModel.h; path = Classes/CKSampleTwitterTweetModel.h; sourceTree = "<group>"; };
 		96DC22CB17622CE20058BA15 /* CKSampleTwitterTweetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKSampleTwitterTweetModel.m; path = Classes/CKSampleTwitterTweetModel.m; sourceTree = "<group>"; };
@@ -92,7 +89,6 @@
 		96DC22D117622D310058BA15 /* CKSampleTwitterTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKSampleTwitterTimelineViewController.m; path = Classes/CKSampleTwitterTimelineViewController.m; sourceTree = "<group>"; };
 		96DC22D317622EE40058BA15 /* UINavigationController.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UINavigationController.style; path = Classes/UINavigationController.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		96DC22D517622F5E0058BA15 /* Stylesheet.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Stylesheet.style; path = Classes/Stylesheet.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
-		96F5C12415E82931007121C6 /* background_nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background_nav@2x.png"; path = "Resources/background_nav@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,10 +206,8 @@
 		9691A518158246D400E4E6E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				68FC1E921864B386009783C3 /* default_avatar.png */,
 				9629E83D1587DFC500593E62 /* TwitterTimeline.strings */,
-				9691A5371582531700E4E6E8 /* default_avatar.png */,
-				965DB124159B685B00D293B2 /* background_nav.png */,
-				96F5C12415E82931007121C6 /* background_nav@2x.png */,
 				9691A519158246D400E4E6E8 /* Entitlements.plist */,
 			);
 			name = Resources;
@@ -271,14 +265,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FC1E931864B386009783C3 /* default_avatar.png in Resources */,
 				9691A4FF158246D300E4E6E8 /* InfoPlist.strings in Resources */,
 				9691A52D15824C9100E4E6E8 /* CKSampleTwitterDataSources.mappings in Resources */,
 				9691A52E15824C9100E4E6E8 /* CKSampleTwitterTimelineViewController.style in Resources */,
-				9691A5381582531700E4E6E8 /* default_avatar.png in Resources */,
 				9629E83E1587DFC500593E62 /* TwitterTimeline.strings in Resources */,
-				965DB125159B685B00D293B2 /* background_nav.png in Resources */,
 				96951A3115E69AE800408239 /* AppCoreKit.conf in Resources */,
-				96F5C12515E82931007121C6 /* background_nav@2x.png in Resources */,
 				96DC22D417622EE40058BA15 /* UINavigationController.style in Resources */,
 				96DC22D617622F5E0058BA15 /* Stylesheet.style in Resources */,
 			);

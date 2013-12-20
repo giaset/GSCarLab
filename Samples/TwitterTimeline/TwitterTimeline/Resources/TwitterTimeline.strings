@@ -7,7 +7,7 @@
 */
 
 
-"kTimelineTitle" = "Timeline Public";
+"kTimelineTitle" = "Timeline";
 "kFeedSourceForTweetsAlertTitle" = "Twitter Authentification Failed";
 "kFeedSourceForTweetsAlertMessage" = "Please register a Twitter account in your settings";
 "kOK" = "Ok";
