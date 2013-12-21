@@ -10,7 +10,7 @@
 #import <AppCoreKit/AppCoreKit.h>
 #import "CKSampleTwitterTimelineModel.h"
 #import "CKSampleTwitterDataSources.h"
-#import "CKSampleTwitterTimelineViewController.h"
+#import "GSCodeRougeLabViewController.h"
 #import <ResourceManager/ResourceManager.h>
 
 @implementation AppDelegate
@@ -53,7 +53,7 @@
     CKSampleTwitterTimelineModel* timeline = [CKSampleTwitterTimelineModel sharedInstance];
     timeline.tweets.feedSource = [CKSampleTwitterDataSources feedSourceForTweets];
     
-    CKSampleTwitterTimelineViewController* viewController = [[CKSampleTwitterTimelineViewController alloc] initWithTimeline:timeline];
+    GSCodeRougeLabViewController* viewController = [[GSCodeRougeLabViewController alloc] initWithTimeline:timeline];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:viewController];
