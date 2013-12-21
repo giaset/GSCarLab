@@ -9,66 +9,54 @@
 #import "GSCodeRougeLabViewController.h"
 
 @interface GSCodeRougeLabViewController ()
-@property(nonatomic,retain) CKSampleTwitterTimelineModel* timeline;
-@property(nonatomic,retain) CKSampleTwitterTweetModel* selectedTweet;
+@property(nonatomic) CKArrayCollection* cars;
+@property(nonatomic,retain) GSCodeRougeLabCarModel* selectedCar;
 @end
 
 @implementation GSCodeRougeLabViewController
 
-
-- (id)initWithTimeline:(CKSampleTwitterTimelineModel*)theTimeline{
+- (id)init
+{
     self = [super init];
-    self.timeline = theTimeline;
-    self.selectedTweet = nil;
-    [self setup];
+    if (self) {
+        self.selectedCar = nil;
+        [self setup];
+    }
     return self;
 }
 
+//timeline.tweets.feedSource = [CKSampleTwitterDataSources feedSourceForTweets];
+
 - (void)setup{
-    self.title = _(@"kTimelineTitle");
+    self.title = @"Honda Civic";
     
     __unsafe_unretained GSCodeRougeLabViewController* bself = self;
     
-    //Setup the factory allowing to create cell controller when tweet models gets inserted into self.timeline.tweets collection asynchronously
-    CKCollectionCellControllerFactory* tweetsFactory = [CKCollectionCellControllerFactory factory];
-    [tweetsFactory addItemForObjectOfClass:[CKSampleTwitterTweetModel class] withControllerCreationBlock:^CKCollectionCellController *(id object, NSIndexPath *indexPath) {
-        CKSampleTwitterTweetModel* tweet = (CKSampleTwitterTweetModel*)object;
-        return [bself cellControllerForTweet:tweet];
+    //Setup the factory that creates cell controllers from our collection
+    CKCollectionCellControllerFactory* carFactory = [CKCollectionCellControllerFactory factory];
+    [carFactory addItemForObjectOfClass:[GSCodeRougeLabCarModel class] withControllerCreationBlock:^CKCollectionCellController *(id object, NSIndexPath *indexPath) {
+        GSCodeRougeLabCarModel* car = (GSCodeRougeLabCarModel *)object;
+        return [bself cellControllerForCar:car];
     }];
     
     //Setup the section binded to the self.timeline.tweets collection
-    CKFormBindedCollectionSection* section = [CKFormBindedCollectionSection sectionWithCollection:self.timeline.tweets factory:tweetsFactory appendSpinnerAsFooterCell:YES];
+    CKFormBindedCollectionSection* section = [CKFormBindedCollectionSection sectionWithCollection:self.cars factory:carFactory appendSpinnerAsFooterCell:YES];
     [self addSections:@[section]];
 }
 
 
-- (CKTableViewCellController*)cellControllerForTweet:(CKSampleTwitterTweetModel*)tweet{
+- (CKTableViewCellController*)cellControllerForCar:(GSCodeRougeLabCarModel *)car{
     __unsafe_unretained GSCodeRougeLabViewController *bself = self;
     
-    //Create block that will be executed when cell is clicked
-    void (^clickBlock)(CKTableViewCellController*) = ^(CKTableViewCellController *controller){
-        CKSampleTwitterTweetModel *thisTweet = (CKSampleTwitterTweetModel *) controller.value;
-        bself.selectedTweet = (bself.selectedTweet == thisTweet) ? nil : thisTweet;
-    };
-    
-    //Setup the cell controller to display a tweet model
-    CKTableViewCellController* cellController =  [CKTableViewCellController cellControllerWithTitle:tweet.name
-                                                                                           subtitle:tweet.message
-                                                                                       defaultImage:[UIImage imageNamed:@"default_avatar"]
-                                                                                           imageURL:tweet.imageUrl
-                                                                                          imageSize:CGSizeMake(44,44)
-                                                                                             action:clickBlock];
-    cellController.value = tweet;
-    
-    //Customize the layout to keep the cell imageview on top with insets
-    [cellController setLayoutBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
-        [controller performLayout];
-        cell.imageView.frame = CGRectMake(controller.contentInsets.left,controller.contentInsets.top,44,44);
+    CKTableViewCellController* cellController = [CKTableViewCellController cellControllerWithName:nil action:^(CKTableViewCellController *controller) {
+        GSCodeRougeLabCarModel *thisCar = (GSCodeRougeLabCarModel *) controller.value;
+        bself.selectedCar = (bself.selectedCar == thisCar) ? nil : thisCar;
     }];
+    cellController.value = car;
     
     //Setup block
     [cellController setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {        
-        CKSampleTwitterTweetModel *thisTweet = (CKSampleTwitterTweetModel *) controller.value;
+        GSCodeRougeLabCarModel *thisCar = (GSCodeRougeLabCarModel *) controller.value;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -76,9 +64,9 @@
         
         [bself bind:@"selectedTweet" executeBlockImmediatly:YES withBlock:^(id value) {
             [UIView animateWithDuration:0.5f animations:^{
-                cell.backgroundColor = (bself.selectedTweet == thisTweet) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
-                cell.textLabel.textColor = (bself.selectedTweet == thisTweet) ? [UIColor whiteColor] : [UIColor blackColor];
-                cell.detailTextLabel.textColor = (bself.selectedTweet == thisTweet) ? [UIColor whiteColor] : [UIColor blackColor];
+                cell.backgroundColor = (bself.selectedCar == thisCar) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
+                cell.textLabel.textColor = (bself.selectedCar == thisCar) ? [UIColor whiteColor] : [UIColor blackColor];
+                cell.detailTextLabel.textColor = (bself.selectedCar == thisCar) ? [UIColor whiteColor] : [UIColor blackColor];
                 //toolbar.hidden = !(bself.selectedTweet == thisTweet);
             }];
         }];
@@ -92,8 +80,8 @@
 - (void)addToolbarToCellController:(CKTableViewCellController *)cellController
 {
     //Get the tweet and create a toolbar for it
-    CKSampleTwitterTweetModel *tweet = (CKSampleTwitterTweetModel *)cellController.value;
-    UIToolbar *toolbar = [self customToolbarForTweet:tweet];
+    GSCodeRougeLabCarModel *car = (GSCodeRougeLabCarModel *) cellController.value;
+    UIToolbar *toolbar = [self customToolbarForCar:car];
     
     //Get current section
     CKFormTableViewController *currentForm = (CKFormTableViewController *)cellController.containerController;
@@ -103,7 +91,7 @@
     
 }
 
-- (UIToolbar *)customToolbarForTweet:(CKSampleTwitterTweetModel*)tweet{
+- (UIToolbar *)customToolbarForCar:(GSCodeRougeLabCarModel *)car{
     UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolbar.tintColor = [UIColor whiteColor];
     toolbar.barTintColor = [UIColor redColor];
