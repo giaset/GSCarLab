@@ -25,12 +25,12 @@
     return self;
 }
 
-//timeline.tweets.feedSource = [CKSampleTwitterDataSources feedSourceForTweets];
-
 - (void)setup{
     self.title = @"Honda Civic";
     
     __unsafe_unretained GSCodeRougeLabViewController* bself = self;
+    
+    //Setup our collection with dummy cars
     
     //Setup the factory that creates cell controllers from our collection
     CKCollectionCellControllerFactory* carFactory = [CKCollectionCellControllerFactory factory];
@@ -79,9 +79,8 @@
 
 - (void)addToolbarToCellController:(CKTableViewCellController *)cellController
 {
-    //Get the tweet and create a toolbar for it
+    //Get the car in order to create a custom cell controller for it
     GSCodeRougeLabCarModel *car = (GSCodeRougeLabCarModel *) cellController.value;
-    UIToolbar *toolbar = [self customToolbarForCar:car];
     
     //Get current section
     CKFormTableViewController *currentForm = (CKFormTableViewController *)cellController.containerController;
@@ -89,28 +88,6 @@
     
     //Create a dummy cellController that has the toolbar as its view and add it to the section right under the selected cell
     
-}
-
-- (UIToolbar *)customToolbarForCar:(GSCodeRougeLabCarModel *)car{
-    UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    toolbar.tintColor = [UIColor whiteColor];
-    toolbar.barTintColor = [UIColor redColor];
-    
-    UIBarButtonItem *previousButton = [[UIBarButtonItem alloc]initWithTitle:_(@"Previous") style:UIBarButtonItemStyleBordered block:^{
-    }];
-    
-    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]initWithTitle:_(@"Next") style:UIBarButtonItemStyleBordered block:^{
-    }];
-    
-    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone block:^{
-    }];
-    
-    NSArray *itemsArray = [NSArray arrayWithObjects:previousButton, nextButton, flexButton, doneButton, nil];
-    
-    [toolbar setItems:itemsArray];
-    
-    return toolbar;
 }
 
 @end

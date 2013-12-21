@@ -36,7 +36,6 @@
 		9691A505158246D300E4E6E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691A504158246D300E4E6E8 /* AppDelegate.m */; };
 		9691A53415824FB000E4E6E8 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9691A53315824FB000E4E6E8 /* libstdc++.dylib */; };
 		96951A3115E69AE800408239 /* AppCoreKit.conf in Resources */ = {isa = PBXBuildFile; fileRef = 96951A3015E69AE800408239 /* AppCoreKit.conf */; };
-		96DC22CC17622CE20058BA15 /* CKSampleTwitterTweetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DC22CB17622CE20058BA15 /* CKSampleTwitterTweetModel.m */; };
 		96DC22D417622EE40058BA15 /* UINavigationController.style in Resources */ = {isa = PBXBuildFile; fileRef = 96DC22D317622EE40058BA15 /* UINavigationController.style */; };
 		96DC22D617622F5E0058BA15 /* Stylesheet.style in Resources */ = {isa = PBXBuildFile; fileRef = 96DC22D517622F5E0058BA15 /* Stylesheet.style */; };
 /* End PBXBuildFile section */
@@ -79,8 +78,6 @@
 		9691A519158246D400E4E6E8 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		9691A53315824FB000E4E6E8 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		96951A3015E69AE800408239 /* AppCoreKit.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AppCoreKit.conf; path = Classes/AppCoreKit.conf; sourceTree = "<group>"; };
-		96DC22CA17622CE20058BA15 /* CKSampleTwitterTweetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKSampleTwitterTweetModel.h; path = Classes/CKSampleTwitterTweetModel.h; sourceTree = "<group>"; };
-		96DC22CB17622CE20058BA15 /* CKSampleTwitterTweetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKSampleTwitterTweetModel.m; path = Classes/CKSampleTwitterTweetModel.m; sourceTree = "<group>"; };
 		96DC22D317622EE40058BA15 /* UINavigationController.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UINavigationController.style; path = Classes/UINavigationController.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		96DC22D517622F5E0058BA15 /* Stylesheet.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Stylesheet.style; path = Classes/Stylesheet.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 /* End PBXFileReference section */
@@ -179,8 +176,6 @@
 				96951A3015E69AE800408239 /* AppCoreKit.conf */,
 				9691A503158246D300E4E6E8 /* AppDelegate.h */,
 				9691A504158246D300E4E6E8 /* AppDelegate.m */,
-				96DC22CA17622CE20058BA15 /* CKSampleTwitterTweetModel.h */,
-				96DC22CB17622CE20058BA15 /* CKSampleTwitterTweetModel.m */,
 				96DC22D517622F5E0058BA15 /* Stylesheet.style */,
 				96DC22D317622EE40058BA15 /* UINavigationController.style */,
 				68434F9F186534D300EDB120 /* GSCodeRougeLabViewController.h */,
@@ -302,7 +297,6 @@
 				68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */,
 				9691A501158246D300E4E6E8 /* main.m in Sources */,
 				9691A505158246D300E4E6E8 /* AppDelegate.m in Sources */,
-				96DC22CC17622CE20058BA15 /* CKSampleTwitterTweetModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
