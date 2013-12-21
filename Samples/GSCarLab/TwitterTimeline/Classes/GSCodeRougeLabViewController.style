@@ -16,16 +16,45 @@
                     "layoutBoxes" : [
                         {
                             "@class" : "CKHorizontalBoxLayout",
-                            "padding" : "15 15 15 15",
+                            "padding" : "15 10 15 10",
                             "layoutBoxes" : [
-                                { "@class" : "UIImageView", "name" : "CarImage" }
+                                { "@class" : "UIImageView", "name" : "CarImage" },
+                                {
+                                    "@class" : "CKVerticalBoxLayout",
+                                    "layoutBoxes" : [
+                                        { "@class" : "UILabel", "name" : "TitleLabel" },
+                                        {
+                                            "@class" : "CKHorizontalBoxLayout",
+                                            "layoutBoxes" : [
+                                                { "@class" : "UILabel", "name" : "MileageAndTransmissionLabel" },
+                                                { "@class" : "UILabel", "name" : "TimeRemainingLabel" },
+                                                { "@class" : "CKLayoutFlexibleSpace" }
+                                            ]
+                                        }
+                                    ]
+                                }
                             ]
                         }
                     ],
 
                     "UIImageView[name=CarImage]" : {
-                        "image" : "car",
                         "marginRight" : 10
+                    },
+
+                    "UILabel[name=TitleLabel]" : {
+                        "marginBottom" : 5
+                    },
+
+                    "UILabel[name=MileageAndTransmissionLabel]" : {
+                        "fontSize" : 12,
+                        "marginRight" : 5
+                    },
+
+                    "UILabel[name=TimeRemainingLabel]" : {
+                        "fontSize" : 12,
+                        "text" : "1h30min",
+                        "backgroundColor" : "redColor",
+                        "textColor" : "whiteColor"
                     }
                 }
             }

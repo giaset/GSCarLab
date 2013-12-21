@@ -32,7 +32,7 @@
     
     //Setup our collection with dummy cars
     NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 50; i++) {
         GSCodeRougeLabCarModel *car = [[GSCodeRougeLabCarModel alloc] initWithReferenceNumber:i];
         [array addObject:car];
     }
@@ -66,15 +66,40 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.backgroundColor = (bself.selectedCar == thisCar) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
+        //Get all the labels and images we have to set
+        UIImageView *carImage = (UIImageView *)[cell.contentView viewWithKeyPath:@"CarImage"];
+        carImage.image = [UIImage imageNamed:thisCar.imageName];
+        
+        UILabel *titleLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"TitleLabel"];
+        titleLabel.text = thisCar.title;
+        
+        UILabel *mileageAndTransmissionLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"MileageAndTransmissionLabel"];
+        mileageAndTransmissionLabel.text = thisCar.transmission;
+        
+        /*UILabel *timeRemainingLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"TimeRemainingLabel"];
+        timeRemainingLabel.text = thisCar.transmission;*/
+        
+        void (^setProperColors)(void) = ^(void) {
+            if (bself.selectedCar == thisCar) {
+                cell.backgroundColor = [UIColor colorWithRGBValue:0x333333];
+                titleLabel.textColor = [UIColor whiteColor];
+                mileageAndTransmissionLabel.textColor = [UIColor whiteColor];
+            } else {
+                cell.backgroundColor = [UIColor whiteColor];
+                titleLabel.textColor = [UIColor blackColor];
+                mileageAndTransmissionLabel.textColor = [UIColor blackColor];
+            }
+        };
+        
+        //Initial setup of colors
+        setProperColors();
         
         [cell beginBindingsContextByRemovingPreviousBindings];
         
-        [bself bind:@"selectedCar" executeBlockImmediatly:YES withBlock:^(id value) {
+        //Color transitions
+        [bself bind:@"selectedCar" withBlock:^(id value) {
             [UIView animateWithDuration:0.5f animations:^{
-                cell.backgroundColor = (bself.selectedCar == thisCar) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
-                cell.textLabel.textColor = (bself.selectedCar == thisCar) ? [UIColor whiteColor] : [UIColor blackColor];
-                cell.detailTextLabel.textColor = (bself.selectedCar == thisCar) ? [UIColor whiteColor] : [UIColor blackColor];
+                setProperColors();
                 //toolbar.hidden = !(bself.selectedTweet == thisTweet);
             }];
         }];
