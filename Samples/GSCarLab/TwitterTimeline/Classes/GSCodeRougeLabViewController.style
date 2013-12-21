@@ -12,18 +12,15 @@
             "accessoryType" : "UITableViewCellAccessoryNone",
             
             "UITableViewCell" : {
-                "backgroundColor" : "whiteColor",
-                "textLabel,detailTextLabel" : {
-                    "fontSize" : 16
-                },
-                "imageView" : {
-                    "clipsToBounds" : 1,
-                    "layer" : {
-                        // this needs to be 50% of height/width
-                        "cornerRadius" : 22,
-                        "borderWidth" : 0.7,
-                        "borderColor" : "lightGrayColor"
-                    }
+                "contentView" : {
+                    "layoutBoxes" : [
+                        {
+                            "@class" : "CKHorizontalBoxLayout",
+                            "padding" : "10 10 0 10",
+                            "layoutBoxes" : [
+                            ]
+                        }
+                    ]
                 }
             }
         }
