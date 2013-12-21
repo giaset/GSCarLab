@@ -1,14 +1,11 @@
 //
 //  AppDelegate.m
-//  TwitterTimeline
 //
 //  Created by  on 12-06-08.
-//  Copyright (c) 2012 WhereCloud Inc. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import <AppCoreKit/AppCoreKit.h>
-#import "CKSampleTwitterDataSources.h"
 #import "GSCodeRougeLabViewController.h"
 #import <ResourceManager/ResourceManager.h>
 

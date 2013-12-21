@@ -9,7 +9,7 @@
 
 @interface GSCodeRougeLabCarModel : CKObject
 
-@property(nonatomic,copy) NSString* referenceNumber;
+@property(nonatomic,assign) NSInteger referenceNumber;
 @property(nonatomic,copy) NSString* imageName;
 @property(nonatomic,copy) NSString* title;
 @property(nonatomic,assign) NSInteger year;
@@ -19,6 +19,6 @@
 @property(nonatomic,copy) NSString* transmission;
 @property(nonatomic,retain) NSDate* expiryDate;
 
-- (id)initWithReferenceNumber:(NSString *)referenceNumber;
+- (id)initWithReferenceNumber:(NSInteger)referenceNumber;
 
 @end

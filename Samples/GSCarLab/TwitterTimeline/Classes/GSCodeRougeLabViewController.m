@@ -9,8 +9,8 @@
 #import "GSCodeRougeLabViewController.h"
 
 @interface GSCodeRougeLabViewController ()
-@property(nonatomic) CKArrayCollection* cars;
-@property(nonatomic,retain) GSCodeRougeLabCarModel* selectedCar;
+@property(nonatomic) CKArrayCollection *cars;
+@property(nonatomic,retain) GSCodeRougeLabCarModel *selectedCar;
 @end
 
 @implementation GSCodeRougeLabViewController
@@ -31,6 +31,12 @@
     __unsafe_unretained GSCodeRougeLabViewController* bself = self;
     
     //Setup our collection with dummy cars
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < 20; i++) {
+        GSCodeRougeLabCarModel *car = [[GSCodeRougeLabCarModel alloc] initWithReferenceNumber:i];
+        [array addObject:car];
+    }
+    self.cars = [[CKArrayCollection alloc] initWithObjectsFromArray:array];
     
     //Setup the factory that creates cell controllers from our collection
     CKCollectionCellControllerFactory* carFactory = [CKCollectionCellControllerFactory factory];
@@ -62,7 +68,7 @@
         
         [cell beginBindingsContextByRemovingPreviousBindings];
         
-        [bself bind:@"selectedTweet" executeBlockImmediatly:YES withBlock:^(id value) {
+        [bself bind:@"selectedCar" executeBlockImmediatly:YES withBlock:^(id value) {
             [UIView animateWithDuration:0.5f animations:^{
                 cell.backgroundColor = (bself.selectedCar == thisCar) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
                 cell.textLabel.textColor = (bself.selectedCar == thisCar) ? [UIColor whiteColor] : [UIColor blackColor];

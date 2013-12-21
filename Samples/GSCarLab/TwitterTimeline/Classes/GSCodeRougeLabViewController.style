@@ -2,21 +2,19 @@
     "GSCodeRougeLabViewController" : {
         "tableViewInsets" : "-36 0 0 0",
         "rowInsertAnimation" : "UITableViewRowAnimationTop",
-        "style" : "UITableViewStyleGrouped",
         
         "tableView" : {
             "backgroundColor" : "#333333"
         },
         
         "CKTableViewCellController" : {
-            "cellStyle" : "CKTableViewCellStyleSubtitle2",
+            "cellStyle" : "CKTableViewCellStyleCustomLayout",
             "accessoryType" : "UITableViewCellAccessoryNone",
-            "contentInsets" : "15 15 15 15",
+            
             "UITableViewCell" : {
                 "backgroundColor" : "whiteColor",
                 "textLabel,detailTextLabel" : {
-                    "fontSize" : 16,
-                    "backgroundColor" : "clearColor"
+                    "fontSize" : 16
                 },
                 "imageView" : {
                     "clipsToBounds" : 1,

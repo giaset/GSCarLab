@@ -25,7 +25,7 @@
     return self;
 }
 
-- (id)initWithReferenceNumber:(NSString *)referenceNumber{
+- (id)initWithReferenceNumber:(NSInteger)referenceNumber{
     self = [self init];
     self.referenceNumber = referenceNumber;
     return self;
