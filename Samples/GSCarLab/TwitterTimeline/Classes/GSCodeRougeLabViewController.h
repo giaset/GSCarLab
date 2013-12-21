@@ -7,11 +7,8 @@
 //
 
 #import <AppCoreKit/AppCoreKit.h>
-#import "CKSampleTwitterTweetModel.h"
-#import "CKSampleTwitterTimelineModel.h"
+#import "GSCodeRougeLabCarModel.h"
 
 @interface GSCodeRougeLabViewController : CKFormTableViewController
-
-- (id)initWithTimeline:(CKSampleTwitterTimelineModel*)timeline;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <AppCoreKit/AppCoreKit.h>
-#import "CKSampleTwitterTimelineModel.h"
 #import "CKSampleTwitterDataSources.h"
 #import "GSCodeRougeLabViewController.h"
 #import <ResourceManager/ResourceManager.h>
@@ -19,19 +18,6 @@
 
 - (id)init{
     self = [super init];
-    
-#if TARGET_IPHONE_SIMULATOR
-    
-    NSString* projectPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SRC_ROOT"];
-    RMBundleResourceRepository* localRepository = [[RMBundleResourceRepository alloc]initWithPath:projectPath];
-    localRepository.pullingTimeInterval = 1;
-    
-    RMResourceManager* resourceManager = [[RMResourceManager alloc]initWithRepositories:@[localRepository]];
-    
-    [RMResourceManager setSharedManager:resourceManager];
-#else
-#endif
-    
     
     [[CKStyleManager defaultManager]loadContentOfFileNamed:@"Stylesheet"];
     
@@ -49,10 +35,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    CKSampleTwitterTimelineModel* timeline = [CKSampleTwitterTimelineModel sharedInstance];
-    timeline.tweets.feedSource = [CKSampleTwitterDataSources feedSourceForTweets];
-    
-    GSCodeRougeLabViewController* viewController = [[GSCodeRougeLabViewController alloc] initWithTimeline:timeline];
+    GSCodeRougeLabViewController* viewController = [[GSCodeRougeLabViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:viewController];
