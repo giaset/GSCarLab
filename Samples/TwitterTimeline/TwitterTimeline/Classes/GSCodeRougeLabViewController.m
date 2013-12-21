@@ -1,19 +1,19 @@
 //
-//  CKSampleTwitterTimelineViewController.m
-//  TwitterTimeline
+//  GSCodeRougeLabViewController.m
+//  CodeRougeLab
 //
-//  Created by Sebastien Morel on 13-06-07.
+//  Created by Gianni Settino on 12-20-2013.
 //  Copyright (c) 2013 WhereCloud Inc. All rights reserved.
 //
 
-#import "CKSampleTwitterTimelineViewController.h"
+#import "GSCodeRougeLabViewController.h"
 
-@interface CKSampleTwitterTimelineViewController ()
+@interface GSCodeRougeLabViewController ()
 @property(nonatomic,retain) CKSampleTwitterTimelineModel* timeline;
 @property(nonatomic,retain) CKSampleTwitterTweetModel* selectedTweet;
 @end
 
-@implementation CKSampleTwitterTimelineViewController
+@implementation GSCodeRougeLabViewController
 
 
 - (id)initWithTimeline:(CKSampleTwitterTimelineModel*)theTimeline{
@@ -27,7 +27,7 @@
 - (void)setup{
     self.title = _(@"kTimelineTitle");
     
-    __unsafe_unretained CKSampleTwitterTimelineViewController* bself = self;
+    __unsafe_unretained GSCodeRougeLabViewController* bself = self;
     
     //Setup the factory allowing to create cell controller when tweet models gets inserted into self.timeline.tweets collection asynchronously
     CKCollectionCellControllerFactory* tweetsFactory = [CKCollectionCellControllerFactory factory];
@@ -43,7 +43,7 @@
 
 
 - (CKTableViewCellController*)cellControllerForTweet:(CKSampleTwitterTweetModel*)tweet{
-    __unsafe_unretained CKSampleTwitterTimelineViewController *bself = self;
+    __unsafe_unretained GSCodeRougeLabViewController *bself = self;
     
     //Create block that will be executed when cell is clicked
     void (^clickBlock)(CKTableViewCellController*) = ^(CKTableViewCellController *controller){

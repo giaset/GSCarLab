@@ -1,6 +1,7 @@
 {
     "@import" : [
         "UINavigationController",
-        "CKSampleTwitterTimelineViewController"
+        "CKSampleTwitterTimelineViewController",
+        "GSCodeRougeLabViewController"
     ]
 }

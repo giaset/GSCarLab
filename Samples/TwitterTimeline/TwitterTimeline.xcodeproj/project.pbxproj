@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */; };
+		68434FA3186534D300EDB120 /* GSCodeRougeLabViewController.style in Resources */ = {isa = PBXBuildFile; fileRef = 68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */; };
+		68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */; };
 		68FC1E931864B386009783C3 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FC1E921864B386009783C3 /* default_avatar.png */; };
 		9604728D163EEB4A00B39F8F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9604728C163EEB4A00B39F8F /* Twitter.framework */; };
 		96047294163EF69A00B39F8F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96047293163EF69A00B39F8F /* Accounts.framework */; };
@@ -45,6 +48,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68434F9F186534D300EDB120 /* GSCodeRougeLabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabViewController.h; path = Classes/GSCodeRougeLabViewController.h; sourceTree = "<group>"; };
+		68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabViewController.m; path = Classes/GSCodeRougeLabViewController.m; sourceTree = "<group>"; };
+		68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GSCodeRougeLabViewController.style; path = Classes/GSCodeRougeLabViewController.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		68434FA41865367900EDB120 /* GSCodeRougeLabCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabCarModel.h; path = Classes/GSCodeRougeLabCarModel.h; sourceTree = "<group>"; };
+		68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabCarModel.m; path = Classes/GSCodeRougeLabCarModel.m; sourceTree = "<group>"; };
 		68E611ED1864F20B007754E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		68FC1E921864B386009783C3 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_avatar.png; path = Resources/default_avatar.png; sourceTree = "<group>"; };
 		9604728C163EEB4A00B39F8F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -188,6 +196,11 @@
 				9691A52C15824C9100E4E6E8 /* CKSampleTwitterTimelineViewController.style */,
 				96DC22D017622D310058BA15 /* CKSampleTwitterTimelineViewController.h */,
 				96DC22D117622D310058BA15 /* CKSampleTwitterTimelineViewController.m */,
+				68434F9F186534D300EDB120 /* GSCodeRougeLabViewController.h */,
+				68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */,
+				68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */,
+				68434FA41865367900EDB120 /* GSCodeRougeLabCarModel.h */,
+				68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */,
 				9691A518158246D400E4E6E8 /* Resources */,
 				9691A4FB158246D300E4E6E8 /* Supporting Files */,
 			);
@@ -269,6 +282,7 @@
 			files = (
 				68FC1E931864B386009783C3 /* default_avatar.png in Resources */,
 				9691A4FF158246D300E4E6E8 /* InfoPlist.strings in Resources */,
+				68434FA3186534D300EDB120 /* GSCodeRougeLabViewController.style in Resources */,
 				9691A52D15824C9100E4E6E8 /* CKSampleTwitterDataSources.mappings in Resources */,
 				9691A52E15824C9100E4E6E8 /* CKSampleTwitterTimelineViewController.style in Resources */,
 				9629E83E1587DFC500593E62 /* TwitterTimeline.strings in Resources */,
@@ -302,6 +316,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */,
+				68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */,
 				9691A501158246D300E4E6E8 /* main.m in Sources */,
 				9691A505158246D300E4E6E8 /* AppDelegate.m in Sources */,
 				9691A52A1582493A00E4E6E8 /* CKSampleTwitterDataSources.m in Sources */,
