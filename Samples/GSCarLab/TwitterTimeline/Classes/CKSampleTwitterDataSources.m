@@ -15,33 +15,6 @@
 
 @implementation CKSampleTwitterDataSources
 
-/* The Twitter public Timeline API is not available anymore.
-   This sampe illustrates how to fetch data from the web using AppCoreKit high level http requests API that transforms the resulting payload into document objects.
-   Connected to a collection, the array of document objects created in this method are inserted into the collection and the table view refreshes automatically
-   As it is watching this collection content.
- */
-
-/*
-+ (CKFeedSource*)feedSourceForTweets{
-    CKWebSource* webSource = [[CKWebSource alloc]init];
-    webSource.requestBlock = ^(NSRange range){
-        NSURL* tweetsAPIUrl = [NSURL URLWithString:@"https://api.twitter.com/1/statuses/public_timeline.json"];
-        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",range.length],@"count",@"true",@"include_entities", nil];
-        
-        CKWebRequest* request = [CKWebRequest requestForObjectsWithUrl:tweetsAPIUrl
-                                                                params:(NSDictionary*)params
-                                                                  body:nil
-                                              mappingContextIdentifier:@"$Tweet"
-                                                      transformRawData:nil
-                                                            completion:nil
-                                                                 error:nil];
-        return request;
-                                 
-    };
-    return webSource;
-}
- */
-
 + (void)authentificationError{
     CKAlertView* alert = [[CKAlertView alloc]initWithTitle:_(@"kFeedSourceForTweetsAlertTitle") message:_(@"kFeedSourceForTweetsAlertMessage")];
     [alert addButtonWithTitle:_(@"kOK") action:nil];

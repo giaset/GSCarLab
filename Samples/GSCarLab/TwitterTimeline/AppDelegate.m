@@ -34,7 +34,6 @@
     
     
     [[CKStyleManager defaultManager]loadContentOfFileNamed:@"Stylesheet"];
-    [CKMappingContext loadContentOfFileNamed:@"CKSampleTwitterDataSources"];
     
 #ifdef DEBUG
     [CKConfiguration initWithContentOfFileNames:@"AppCoreKit" type:CKConfigurationTypeDebug];

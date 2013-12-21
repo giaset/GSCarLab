@@ -1,9 +1,0 @@
-{
-    "$Tweet" : {
-        "@class" : "CKSampleTwitterTweetModel",
-        "imageUrl" : "user.profile_image_url",
-        "name" : "user.name",
-        "message" : "text",
-        "identifier" : "id_str"
-    }
-}
