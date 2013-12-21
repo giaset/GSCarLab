@@ -94,6 +94,9 @@
         [bself bind:@"selectedCar" withBlock:^(id value) {
             [UIView animateWithDuration:0.5f animations:^{
                 setProperColors();
+                if (bself.selectedCar == thisCar) {
+                    [bself addDetailsCellBelowCellController:controller];
+                }
                 //toolbar.hidden = !(bself.selectedTweet == thisTweet);
             }];
         }];
@@ -104,17 +107,24 @@
     return cellController;
 }
 
-- (void)addToolbarToCellController:(CKTableViewCellController *)cellController
+- (void)addDetailsCellBelowCellController:(CKTableViewCellController *)cellController
 {
     //Get the car in order to create a custom cell controller for it
-    GSCodeRougeLabCarModel *car = (GSCodeRougeLabCarModel *) cellController.value;
+    //GSCodeRougeLabCarModel *car = (GSCodeRougeLabCarModel *) cellController.value;
     
     //Get current section
-    CKFormTableViewController *currentForm = (CKFormTableViewController *)cellController.containerController;
-    CKFormSection *section = (CKFormSection *)[currentForm sectionAtIndex:cellController.indexPath.section];
+    CKFormSection *section = (CKFormSection *)[self sectionAtIndex:0];
     
-    //Create a dummy cellController that has the toolbar as its view and add it to the section right under the selected cell
+    //Create a custom cellController and add it right under the selected cell
+    CKTableViewCellController *detailsCellController = [CKTableViewCellController cellController];
+    detailsCellController.text = @"Details";
+    [detailsCellController setInitBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
+        cell.backgroundColor = [UIColor colorWithRGBValue:0x333333];
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }];
     
+    //[section insertCellController:detailsCellController atIndex:cellController.indexPath.row + 1];
+    //[section removeCellControllerAtIndex:cellController.indexPath.row + 1];
 }
 
 @end
