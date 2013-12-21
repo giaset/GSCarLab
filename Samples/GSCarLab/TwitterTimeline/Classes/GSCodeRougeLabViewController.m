@@ -66,6 +66,8 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        cell.backgroundColor = (bself.selectedCar == thisCar) ? [UIColor colorWithRGBValue:0x333333] : [UIColor whiteColor];
+        
         [cell beginBindingsContextByRemovingPreviousBindings];
         
         [bself bind:@"selectedCar" executeBlockImmediatly:YES withBlock:^(id value) {

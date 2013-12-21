@@ -16,11 +16,17 @@
                     "layoutBoxes" : [
                         {
                             "@class" : "CKHorizontalBoxLayout",
-                            "padding" : "10 10 0 10",
+                            "padding" : "15 15 15 15",
                             "layoutBoxes" : [
+                                { "@class" : "UIImageView", "name" : "CarImage" }
                             ]
                         }
-                    ]
+                    ],
+
+                    "UIImageView[name=CarImage]" : {
+                        "image" : "car",
+                        "marginRight" : 10
+                    }
                 }
             }
         }

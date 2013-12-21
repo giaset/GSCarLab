@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6825E8951865617C0018B829 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 6825E8931865617C0018B829 /* car.png */; };
+		6825E8961865617C0018B829 /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6825E8941865617C0018B829 /* car@2x.png */; };
 		68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */; };
 		68434FA3186534D300EDB120 /* GSCodeRougeLabViewController.style in Resources */ = {isa = PBXBuildFile; fileRef = 68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */; };
 		68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */; };
-		68FC1E931864B386009783C3 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FC1E921864B386009783C3 /* default_avatar.png */; };
 		9604728D163EEB4A00B39F8F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9604728C163EEB4A00B39F8F /* Twitter.framework */; };
 		96047294163EF69A00B39F8F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96047293163EF69A00B39F8F /* Accounts.framework */; };
 		963AB7E6179D68D80076925C /* ResourceManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AB7E5179D68D80076925C /* ResourceManager.framework */; };
@@ -41,13 +42,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6825E8931865617C0018B829 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car.png; path = Resources/car.png; sourceTree = "<group>"; };
+		6825E8941865617C0018B829 /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "car@2x.png"; path = "Resources/car@2x.png"; sourceTree = "<group>"; };
 		68434F9F186534D300EDB120 /* GSCodeRougeLabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabViewController.h; path = Classes/GSCodeRougeLabViewController.h; sourceTree = "<group>"; };
 		68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabViewController.m; path = Classes/GSCodeRougeLabViewController.m; sourceTree = "<group>"; };
 		68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GSCodeRougeLabViewController.style; path = Classes/GSCodeRougeLabViewController.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		68434FA41865367900EDB120 /* GSCodeRougeLabCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabCarModel.h; path = Classes/GSCodeRougeLabCarModel.h; sourceTree = "<group>"; };
 		68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabCarModel.m; path = Classes/GSCodeRougeLabCarModel.m; sourceTree = "<group>"; };
 		68E611ED1864F20B007754E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		68FC1E921864B386009783C3 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_avatar.png; path = Resources/default_avatar.png; sourceTree = "<group>"; };
 		9604728C163EEB4A00B39F8F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		96047293163EF69A00B39F8F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		963AB7E5179D68D80076925C /* ResourceManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResourceManager.framework; path = ../../Frameworks/ResourceManager.framework; sourceTree = "<group>"; };
@@ -202,7 +204,8 @@
 		9691A518158246D400E4E6E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				68FC1E921864B386009783C3 /* default_avatar.png */,
+				6825E8931865617C0018B829 /* car.png */,
+				6825E8941865617C0018B829 /* car@2x.png */,
 				9691A519158246D400E4E6E8 /* Entitlements.plist */,
 			);
 			name = Resources;
@@ -260,10 +263,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68FC1E931864B386009783C3 /* default_avatar.png in Resources */,
+				6825E8951865617C0018B829 /* car.png in Resources */,
 				9691A4FF158246D300E4E6E8 /* InfoPlist.strings in Resources */,
 				68434FA3186534D300EDB120 /* GSCodeRougeLabViewController.style in Resources */,
 				96951A3115E69AE800408239 /* AppCoreKit.conf in Resources */,
+				6825E8961865617C0018B829 /* car@2x.png in Resources */,
 				96DC22D417622EE40058BA15 /* UINavigationController.style in Resources */,
 				96DC22D617622F5E0058BA15 /* Stylesheet.style in Resources */,
 			);
