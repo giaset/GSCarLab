@@ -25,10 +25,4 @@
     return self;
 }
 
-- (id)initWithReferenceNumber:(NSInteger)referenceNumber{
-    self = [self init];
-    self.referenceNumber = referenceNumber;
-    return self;
-}
-
 @end

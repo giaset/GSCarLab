@@ -7,6 +7,7 @@
 //
 
 #import "GSCodeRougeLabViewController.h"
+#import "GSCarLabDataSources.h"
 
 @interface GSCodeRougeLabViewController ()
 @property(nonatomic) CKArrayCollection *cars;
@@ -19,6 +20,7 @@
 {
     self = [super init];
     if (self) {
+        self.cars = [[CKArrayCollection alloc] initWithFeedSource:[GSCarLabDataSources feedSourceForCars]];
         self.selectedCar = nil;
         [self setup];
     }
@@ -30,14 +32,6 @@
     
     __unsafe_unretained GSCodeRougeLabViewController* bself = self;
     
-    //Setup our collection with dummy cars
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < 50; i++) {
-        GSCodeRougeLabCarModel *car = [[GSCodeRougeLabCarModel alloc] initWithReferenceNumber:i];
-        [array addObject:car];
-    }
-    self.cars = [[CKArrayCollection alloc] initWithObjectsFromArray:array];
-    
     //Setup the factory that creates cell controllers from our collection
     CKCollectionCellControllerFactory* carFactory = [CKCollectionCellControllerFactory factory];
     [carFactory addItemForObjectOfClass:[GSCodeRougeLabCarModel class] withControllerCreationBlock:^CKCollectionCellController *(id object, NSIndexPath *indexPath) {
@@ -46,7 +40,7 @@
     }];
     
     //Setup the section binded to the self.timeline.tweets collection
-    CKFormBindedCollectionSection* section = [CKFormBindedCollectionSection sectionWithCollection:self.cars factory:carFactory appendSpinnerAsFooterCell:YES];
+    CKFormBindedCollectionSection *section = [CKFormBindedCollectionSection sectionWithCollection:self.cars factory:carFactory appendSpinnerAsFooterCell:NO];
     [self addSections:@[section]];
 }
 

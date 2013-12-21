@@ -12,6 +12,7 @@
 		68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */; };
 		68434FA3186534D300EDB120 /* GSCodeRougeLabViewController.style in Resources */ = {isa = PBXBuildFile; fileRef = 68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */; };
 		68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */; };
+		6892481718661AD900598AA8 /* GSCarLabDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6892481618661AD900598AA8 /* GSCarLabDataSources.m */; };
 		9604728D163EEB4A00B39F8F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9604728C163EEB4A00B39F8F /* Twitter.framework */; };
 		96047294163EF69A00B39F8F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96047293163EF69A00B39F8F /* Accounts.framework */; };
 		963AB7E6179D68D80076925C /* ResourceManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AB7E5179D68D80076925C /* ResourceManager.framework */; };
@@ -49,6 +50,8 @@
 		68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GSCodeRougeLabViewController.style; path = Classes/GSCodeRougeLabViewController.style; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		68434FA41865367900EDB120 /* GSCodeRougeLabCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabCarModel.h; path = Classes/GSCodeRougeLabCarModel.h; sourceTree = "<group>"; };
 		68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabCarModel.m; path = Classes/GSCodeRougeLabCarModel.m; sourceTree = "<group>"; };
+		6892481518661AD900598AA8 /* GSCarLabDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCarLabDataSources.h; path = Classes/GSCarLabDataSources.h; sourceTree = "<group>"; };
+		6892481618661AD900598AA8 /* GSCarLabDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCarLabDataSources.m; path = Classes/GSCarLabDataSources.m; sourceTree = "<group>"; };
 		68E611ED1864F20B007754E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9604728C163EEB4A00B39F8F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		96047293163EF69A00B39F8F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -183,6 +186,8 @@
 				68434F9F186534D300EDB120 /* GSCodeRougeLabViewController.h */,
 				68434FA0186534D300EDB120 /* GSCodeRougeLabViewController.m */,
 				68434FA1186534D300EDB120 /* GSCodeRougeLabViewController.style */,
+				6892481518661AD900598AA8 /* GSCarLabDataSources.h */,
+				6892481618661AD900598AA8 /* GSCarLabDataSources.m */,
 				9691A518158246D400E4E6E8 /* Resources */,
 				9691A4FB158246D300E4E6E8 /* Supporting Files */,
 			);
@@ -297,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6892481718661AD900598AA8 /* GSCarLabDataSources.m in Sources */,
 				68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */,
 				68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */,
 				9691A501158246D300E4E6E8 /* main.m in Sources */,
