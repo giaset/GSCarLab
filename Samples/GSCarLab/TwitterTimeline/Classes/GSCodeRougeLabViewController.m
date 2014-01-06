@@ -51,14 +51,7 @@ const int kCatchWidth = 50;
 - (CKTableViewCellController*)cellControllerForCar:(GSCodeRougeLabCarModel *)car{
     __unsafe_unretained GSCodeRougeLabViewController *bself = self;
     
-    CKTableViewCellController* cellController = [CKTableViewCellController cellControllerWithName:nil action:^(CKTableViewCellController *controller) {
-        GSCodeRougeLabCarModel *thisCar = (GSCodeRougeLabCarModel *) controller.value;
-        
-        //Set the selected car and update the tableview to account for changing cell heights
-        [bself.tableView beginUpdates];
-        bself.selectedCar = (bself.selectedCar == thisCar) ? nil : thisCar;
-        [bself.tableView endUpdates];
-    }];
+    CKTableViewCellController* cellController = [CKTableViewCellController cellController];
     cellController.value = car;
     
     // Setup block
@@ -72,6 +65,17 @@ const int kCatchWidth = 50;
         scrollView.contentSize = CGSizeMake(CGRectGetWidth(cell.bounds) + kCatchWidth, 0);
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.delegate = bself;
+        
+        UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithBlock:^(UIGestureRecognizer *gestureRecognizer) {
+            //Set the selected car and update the tableview to account for changing cell heights
+            [bself.tableView beginUpdates];
+            bself.selectedCar = (bself.selectedCar == thisCar) ? nil : thisCar;
+            [bself.tableView endUpdates];
+        }];
+        singleTapGestureRecognizer.numberOfTapsRequired = 1;
+        singleTapGestureRecognizer.enabled = YES;
+        singleTapGestureRecognizer.cancelsTouchesInView = NO;
+        [scrollView addGestureRecognizer:singleTapGestureRecognizer];
         
         //Get all the labels and images we have to set
         UIImageView *carImage = (UIImageView *)[scrollView viewWithKeyPath:@"CarImage"];
