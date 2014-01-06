@@ -51,6 +51,7 @@
     CKTableViewCellController* cellController = [CKTableViewCellController cellControllerWithName:nil action:^(CKTableViewCellController *controller) {
         GSCodeRougeLabCarModel *thisCar = (GSCodeRougeLabCarModel *) controller.value;
         
+        //Set the selected car and update the tableview to account for changing cell heights
         [bself.tableView beginUpdates];
         bself.selectedCar = (bself.selectedCar == thisCar) ? nil : thisCar;
         [bself.tableView endUpdates];
@@ -88,14 +89,16 @@
             }
         };
         
-        //Initial setup of cell appearance
+        //Initial setup of cell appearance.
+        //We do this here first because we don't want it to be animated when cells
+        //get created, only when the selectedCar changes
         setProperAppearance();
         
         [cell beginBindingsContextByRemovingPreviousBindings];
         
         //Color transitions
         [bself bind:@"selectedCar" withBlock:^(id value) {
-            [UIView animateWithDuration:0.5f animations:^{
+            [UIView animateWithDuration:0.3f animations:^{
                 setProperAppearance();
             }];
         }];
