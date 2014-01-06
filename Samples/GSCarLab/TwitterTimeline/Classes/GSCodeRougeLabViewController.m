@@ -14,6 +14,9 @@
 @property(nonatomic,retain) GSCodeRougeLabCarModel *selectedCar;
 @end
 
+// How far the user has to drag before the cell's horizontal scrollview "catches"
+const int kCatchWidth = 50;
+
 @implementation GSCodeRougeLabViewController
 
 - (id)init
@@ -58,23 +61,29 @@
     }];
     cellController.value = car;
     
-    //Setup block
-    [cellController setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {        
+    // Setup block
+    [cellController setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
         GSCodeRougeLabCarModel *thisCar = (GSCodeRougeLabCarModel *) controller.value;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        // Set up the horizontal scrollView that manages the reveal actions on our cell
+        UIScrollView *scrollView = (UIScrollView *)[cell.contentView viewWithKeyPath:@"CellHorizontalScrollView"];
+        scrollView.contentSize = CGSizeMake(CGRectGetWidth(cell.bounds) + kCatchWidth, 0);
+        scrollView.showsHorizontalScrollIndicator = NO;
+        scrollView.delegate = bself;
+        
         //Get all the labels and images we have to set
-        UIImageView *carImage = (UIImageView *)[cell.contentView viewWithKeyPath:@"CarImage"];
+        UIImageView *carImage = (UIImageView *)[scrollView viewWithKeyPath:@"CarImage"];
         carImage.image = [UIImage imageNamed:thisCar.imageName];
         
-        UILabel *titleLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"TitleLabel"];
+        UILabel *titleLabel = (UILabel *)[scrollView viewWithKeyPath:@"TitleLabel"];
         titleLabel.text = thisCar.title;
         
-        UILabel *mileageAndTransmissionLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"MileageAndTransmissionLabel"];
+        UILabel *mileageAndTransmissionLabel = (UILabel *)[scrollView viewWithKeyPath:@"MileageAndTransmissionLabel"];
         mileageAndTransmissionLabel.text = thisCar.transmission;
         
-        /*UILabel *timeRemainingLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"TimeRemainingLabel"];
+        /*UILabel *timeRemainingLabel = (UILabel *)[scrollview viewWithKeyPath:@"TimeRemainingLabel"];
         timeRemainingLabel.text = thisCar.transmission;*/
         
         void (^setProperAppearance)(void) = ^(void) {
