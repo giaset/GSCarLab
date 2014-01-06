@@ -50,7 +50,10 @@
     
     CKTableViewCellController* cellController = [CKTableViewCellController cellControllerWithName:nil action:^(CKTableViewCellController *controller) {
         GSCodeRougeLabCarModel *thisCar = (GSCodeRougeLabCarModel *) controller.value;
+        
+        [bself.tableView beginUpdates];
         bself.selectedCar = (bself.selectedCar == thisCar) ? nil : thisCar;
+        [bself.tableView endUpdates];
     }];
     cellController.value = car;
     
@@ -73,22 +76,15 @@
         /*UILabel *timeRemainingLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"TimeRemainingLabel"];
         timeRemainingLabel.text = thisCar.transmission;*/
         
-        // Setup toolbar
-        UIToolbar *toolbar = [bself toolbarForCar:thisCar];
-        toolbar.frame = CGRectMake(0, 80, 320, 44);
-        [cell.contentView addSubview:toolbar];
-        
         void (^setProperAppearance)(void) = ^(void) {
             if (bself.selectedCar == thisCar) {
                 cell.backgroundColor = [UIColor colorWithRGBValue:0x333333];
                 titleLabel.textColor = [UIColor whiteColor];
                 mileageAndTransmissionLabel.textColor = [UIColor whiteColor];
-                toolbar.alpha = 1;
             } else {
                 cell.backgroundColor = [UIColor whiteColor];
                 titleLabel.textColor = [UIColor blackColor];
                 mileageAndTransmissionLabel.textColor = [UIColor blackColor];
-                toolbar.alpha = 0;
             }
         };
         
@@ -102,31 +98,12 @@
             [UIView animateWithDuration:0.5f animations:^{
                 setProperAppearance();
             }];
-            [bself.tableView beginUpdates];
-            [bself.tableView endUpdates];
         }];
         
         [cell endBindingsContext];
     }];
     
     return cellController;
-}
-
-- (UIToolbar*)toolbarForCar:(GSCodeRougeLabCarModel*)car
-{
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    toolbar.tintColor = [UIColor whiteColor];
-    toolbar.barTintColor = [UIColor redColor];
-    
-    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:nil];
-    
-    NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, doneButton, nil];
-    
-    [toolbar setItems:itemsArray];
-    
-    return toolbar;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,7 +113,7 @@
     GSCodeRougeLabCarModel *thisCar = [self.cars objectAtIndex:indexPath.row];
     
     if (self.selectedCar == thisCar) {
-        return defaultHeight+44;
+        return defaultHeight*2;
     } else {
         return defaultHeight;
     }
