@@ -33,14 +33,14 @@
     __unsafe_unretained GSCodeRougeLabViewController* bself = self;
     
     //Setup the factory that creates cell controllers from our collection
-    CKCollectionCellControllerFactory* carFactory = [CKCollectionCellControllerFactory factory];
-    [carFactory addItemForObjectOfClass:[GSCodeRougeLabCarModel class] withControllerCreationBlock:^CKCollectionCellController *(id object, NSIndexPath *indexPath) {
+    CKCollectionCellControllerFactory* factory = [CKCollectionCellControllerFactory factory];
+    [factory addItemForObjectOfClass:[GSCodeRougeLabCarModel class] withControllerCreationBlock:^CKCollectionCellController *(id object, NSIndexPath *indexPath) {
         GSCodeRougeLabCarModel* car = (GSCodeRougeLabCarModel *)object;
         return [bself cellControllerForCar:car];
     }];
     
-    //Setup the section binded to the self.timeline.tweets collection
-    CKFormBindedCollectionSection *section = [CKFormBindedCollectionSection sectionWithCollection:self.cars factory:carFactory appendSpinnerAsFooterCell:NO];
+    //Setup the section binded to the self.cars collection
+    CKFormBindedCollectionSection *section = [CKFormBindedCollectionSection sectionWithCollection:self.cars factory:factory appendSpinnerAsFooterCell:NO];
     [self addSections:@[section]];
 }
 
@@ -73,32 +73,37 @@
         /*UILabel *timeRemainingLabel = (UILabel *)[cell.contentView viewWithKeyPath:@"TimeRemainingLabel"];
         timeRemainingLabel.text = thisCar.transmission;*/
         
-        void (^setProperColors)(void) = ^(void) {
+        // Setup toolbar
+        UIToolbar *toolbar = [bself toolbarForCar:thisCar];
+        toolbar.frame = CGRectMake(0, 80, 320, 44);
+        [cell.contentView addSubview:toolbar];
+        
+        void (^setProperAppearance)(void) = ^(void) {
             if (bself.selectedCar == thisCar) {
                 cell.backgroundColor = [UIColor colorWithRGBValue:0x333333];
                 titleLabel.textColor = [UIColor whiteColor];
                 mileageAndTransmissionLabel.textColor = [UIColor whiteColor];
+                toolbar.alpha = 1;
             } else {
                 cell.backgroundColor = [UIColor whiteColor];
                 titleLabel.textColor = [UIColor blackColor];
                 mileageAndTransmissionLabel.textColor = [UIColor blackColor];
+                toolbar.alpha = 0;
             }
         };
         
-        //Initial setup of colors
-        setProperColors();
+        //Initial setup of cell appearance
+        setProperAppearance();
         
         [cell beginBindingsContextByRemovingPreviousBindings];
         
         //Color transitions
         [bself bind:@"selectedCar" withBlock:^(id value) {
             [UIView animateWithDuration:0.5f animations:^{
-                setProperColors();
-                if (bself.selectedCar == thisCar) {
-                    [bself addDetailsCellBelowCellController:controller];
-                }
-                //toolbar.hidden = !(bself.selectedTweet == thisTweet);
+                setProperAppearance();
             }];
+            [bself.tableView beginUpdates];
+            [bself.tableView endUpdates];
         }];
         
         [cell endBindingsContext];
@@ -107,24 +112,34 @@
     return cellController;
 }
 
-- (void)addDetailsCellBelowCellController:(CKTableViewCellController *)cellController
+- (UIToolbar*)toolbarForCar:(GSCodeRougeLabCarModel*)car
 {
-    //Get the car in order to create a custom cell controller for it
-    //GSCodeRougeLabCarModel *car = (GSCodeRougeLabCarModel *) cellController.value;
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolbar.tintColor = [UIColor whiteColor];
+    toolbar.barTintColor = [UIColor redColor];
     
-    //Get current section
-    CKFormSection *section = (CKFormSection *)[self sectionAtIndex:0];
+    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
-    //Create a custom cellController and add it right under the selected cell
-    CKTableViewCellController *detailsCellController = [CKTableViewCellController cellController];
-    detailsCellController.text = @"Details";
-    [detailsCellController setInitBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
-        cell.backgroundColor = [UIColor colorWithRGBValue:0x333333];
-        cell.textLabel.textColor = [UIColor whiteColor];
-    }];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:nil];
     
-    //[section insertCellController:detailsCellController atIndex:cellController.indexPath.row + 1];
-    //[section removeCellControllerAtIndex:cellController.indexPath.row + 1];
+    NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, doneButton, nil];
+    
+    [toolbar setItems:itemsArray];
+    
+    return toolbar;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat defaultHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    
+    GSCodeRougeLabCarModel *thisCar = [self.cars objectAtIndex:indexPath.row];
+    
+    if (self.selectedCar == thisCar) {
+        return defaultHeight+44;
+    } else {
+        return defaultHeight;
+    }
 }
 
 @end
