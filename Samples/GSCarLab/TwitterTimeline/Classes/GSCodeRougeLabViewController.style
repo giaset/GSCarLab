@@ -10,6 +10,7 @@
         "$cellContentView" : {
             "@class" : "UIView",
             "layoutBoxes" : [
+                { "@class" : "UIView", "name" : "BackgroundView" },
                 {
                     "@class" : "CKHorizontalBoxLayout",
                     "padding" : "15 10 15 10",
@@ -32,6 +33,10 @@
                     ]
                 }
             ],
+
+            "UIView[name=BackgroundView]" : {
+                "backgroundColor" : "whiteColor"
+            },
 
             "UIImageView[name=CarImage]" : {
                 "marginRight" : 10
@@ -59,8 +64,15 @@
             "accessoryType" : "UITableViewCellAccessoryNone",
             
             "UITableViewCell" : {
+                "backgroundColor" : "whiteColor",
                 "contentView" : {
                     "layoutBoxes" : [
+                        {
+                            "@class" : "CKVerticalBoxLayout",
+                            "layoutBoxes" : [
+                                { "@class" : "UIView", "name" : "ButtonView" }
+                            ]
+                        },
                         {
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
@@ -68,6 +80,10 @@
                             ]
                         }
                     ],
+
+                    "UIView[name=ButtonView]" : {
+                        "backgroundColor" : "redColor"
+                    },
 
                     "UIScrollView[name=CellHorizontalScrollView]" : {
                         "@inherits" : [ "$cellContentView" ]

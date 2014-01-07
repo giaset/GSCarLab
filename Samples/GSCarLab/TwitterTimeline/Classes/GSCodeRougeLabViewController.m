@@ -62,8 +62,9 @@ const int kCatchWidth = 50;
         
         // Set up the horizontal scrollView that manages the reveal actions on our cell
         UIScrollView *scrollView = (UIScrollView *)[cell.contentView viewWithKeyPath:@"CellHorizontalScrollView"];
-        scrollView.contentSize = CGSizeMake(CGRectGetWidth(cell.bounds) + kCatchWidth, 0);
+        scrollView.contentSize = CGSizeMake(CGRectGetWidth(cell.bounds) + kCatchWidth, scrollView.height);
         scrollView.showsHorizontalScrollIndicator = NO;
+        scrollView.scrollsToTop = NO; // need to do this because if not tapping the status bar to scroll the tableview to the top no longer works...
         scrollView.delegate = bself;
         
         UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithBlock:^(UIGestureRecognizer *gestureRecognizer) {
@@ -76,6 +77,8 @@ const int kCatchWidth = 50;
         singleTapGestureRecognizer.enabled = YES;
         singleTapGestureRecognizer.cancelsTouchesInView = NO;
         [scrollView addGestureRecognizer:singleTapGestureRecognizer];
+        
+        UIView *backgroundView = [scrollView viewWithKeyPath:@"BackgroundView"];
         
         //Get all the labels and images we have to set
         UIImageView *carImage = (UIImageView *)[scrollView viewWithKeyPath:@"CarImage"];
@@ -92,11 +95,11 @@ const int kCatchWidth = 50;
         
         void (^setProperAppearance)(void) = ^(void) {
             if (bself.selectedCar == thisCar) {
-                cell.backgroundColor = [UIColor colorWithRGBValue:0x333333];
+                backgroundView.backgroundColor = [UIColor colorWithRGBValue:0x333333];
                 titleLabel.textColor = [UIColor whiteColor];
                 mileageAndTransmissionLabel.textColor = [UIColor whiteColor];
             } else {
-                cell.backgroundColor = [UIColor whiteColor];
+                backgroundView.backgroundColor = [UIColor whiteColor];
                 titleLabel.textColor = [UIColor blackColor];
                 mileageAndTransmissionLabel.textColor = [UIColor blackColor];
             }
