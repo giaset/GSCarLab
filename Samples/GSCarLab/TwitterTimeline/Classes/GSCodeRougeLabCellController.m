@@ -11,7 +11,7 @@
 @implementation GSCodeRougeLabCellController
 
 // How far the user has to drag before the cell's horizontal scrollview "catches"
-const int kCatchWidth = 75;
+const int kCatchWidth = 80;
 
 - (id)initWithCar:(GSCodeRougeLabCarModel*)car selectionBlock:(void(^)(GSCodeRougeLabCellController* clickedCellController))selectionBlock
 {
@@ -44,6 +44,10 @@ const int kCatchWidth = 75;
         
         UIView *backgroundView = [scrollView viewWithKeyPath:@"BackgroundView"];
         
+        // Get the views that are under the scrollView
+        UIView *leftUnderView = [cell.contentView viewWithKeyPath:@"LeftUnderView"];
+        UIView *rightUnderView = [cell.contentView viewWithKeyPath:@"RightUnderView"];
+        
         //Get all the labels and images we have to set
         UIImageView *carImage = (UIImageView *)[scrollView viewWithKeyPath:@"CarImage"];
         carImage.image = [UIImage imageNamed:thisCar.imageName];
@@ -62,10 +66,14 @@ const int kCatchWidth = 75;
                 backgroundView.backgroundColor = [UIColor colorWithRGBValue:0x333333];
                 titleLabel.textColor = [UIColor whiteColor];
                 mileageAndTransmissionLabel.textColor = [UIColor whiteColor];
+                leftUnderView.backgroundColor = [UIColor colorWithRGBValue:0x1a1a1a];
+                rightUnderView.backgroundColor = [UIColor colorWithRGBValue:0x262626];
             } else {
                 backgroundView.backgroundColor = [UIColor whiteColor];
                 titleLabel.textColor = [UIColor blackColor];
                 mileageAndTransmissionLabel.textColor = [UIColor blackColor];
+                leftUnderView.backgroundColor = [UIColor colorWithRGBValue:0xe6e6e6];
+                rightUnderView.backgroundColor = [UIColor colorWithRGBValue:0xdedede];
             }
         };
         
@@ -98,19 +106,21 @@ const int kCatchWidth = 75;
 //http://www.teehanlax.com/blog/reproducing-the-ios-7-mail-apps-interface/
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    // if we've scrolled far enough, our scrollview should "catch" and lock at a certain position
+    // if we've scrolled far enough, our scrollview should "catch"
     if (scrollView.contentOffset.x > kCatchWidth) {
-        targetContentOffset->x = kCatchWidth;
+        // do something here if we scroll left far enough!
+        //targetContentOffset->x = kCatchWidth;
     } else if (scrollView.contentOffset.x < (-kCatchWidth)) {
         // do something here if we scroll right far enough!
-    } else {
-        *targetContentOffset = CGPointZero;
-        
-        // Need to call this subsequently to remove flickering.
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [scrollView setContentOffset:CGPointZero animated:YES];
-        });
     }
+    
+    // Now reset our scrollView to origin
+    *targetContentOffset = CGPointZero;
+    
+    // Need to call this subsequently to remove flickering.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [scrollView setContentOffset:CGPointZero animated:YES];
+    });
 }
 
 @end

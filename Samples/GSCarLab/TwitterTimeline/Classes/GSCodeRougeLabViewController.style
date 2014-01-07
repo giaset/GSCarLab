@@ -70,7 +70,13 @@
                         {
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
-                                { "@class" : "UIView", "name" : "ButtonView" }
+                                {
+                                    "@class" : "CKHorizontalBoxLayout",
+                                    "layoutBoxes" : [
+                                        { "@class" : "UIView", "name" : "LeftUnderView", "fixedWidth" : 40 },
+                                        { "@class" : "UIView", "name" : "RightUnderView" }
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -81,8 +87,12 @@
                         }
                     ],
 
-                    "UIView[name=ButtonView]" : {
-                        "backgroundColor" : "redColor"
+                    "UIView[name=LeftUnderView]" : {
+                        "backgroundColor" : "#e6e6e6"
+                    },
+
+                    "UIView[name=RightUnderView]" : {
+                        "backgroundColor" : "#dedede"
                     },
 
                     "UIScrollView[name=CellHorizontalScrollView]" : {
