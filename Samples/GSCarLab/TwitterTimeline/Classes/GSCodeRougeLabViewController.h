@@ -7,7 +7,6 @@
 //
 
 #import <AppCoreKit/AppCoreKit.h>
-#import "GSCodeRougeLabCarModel.h"
 
 @interface GSCodeRougeLabViewController : CKFormTableViewController
 
