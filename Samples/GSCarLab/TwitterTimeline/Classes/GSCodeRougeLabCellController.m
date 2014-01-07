@@ -101,7 +101,7 @@ const int kCatchWidth = 75;
     // if we've scrolled far enough, our scrollview should "catch" and lock at a certain position
     if (scrollView.contentOffset.x > kCatchWidth) {
         targetContentOffset->x = kCatchWidth;
-    } else if (scrollView.contentOffset.x < (kCatchWidth*-1)) {
+    } else if (scrollView.contentOffset.x < (-kCatchWidth)) {
         // do something here if we scroll right far enough!
     } else {
         *targetContentOffset = CGPointZero;
