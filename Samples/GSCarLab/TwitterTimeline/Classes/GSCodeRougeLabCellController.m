@@ -11,7 +11,7 @@
 @implementation GSCodeRougeLabCellController
 
 // How far the user has to drag before the cell's horizontal scrollview "catches"
-const int kCatchWidth = 50;
+const int kCatchWidth = 75;
 
 - (id)initWithCar:(GSCodeRougeLabCarModel*)car selectionBlock:(void(^)(GSCodeRougeLabCellController* clickedCellController))selectionBlock
 {
@@ -87,6 +87,30 @@ const int kCatchWidth = 50;
     }];
     
     return self;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // do stuff here
+    NSLog(@"contentOffset = %f", scrollView.contentOffset.x);
+}
+
+//http://www.teehanlax.com/blog/reproducing-the-ios-7-mail-apps-interface/
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    // if we've scrolled far enough, our scrollview should "catch" and lock at a certain position
+    if (scrollView.contentOffset.x > kCatchWidth) {
+        targetContentOffset->x = kCatchWidth;
+    } else if (scrollView.contentOffset.x < (kCatchWidth*-1)) {
+        // do something here if we scroll right far enough!
+    } else {
+        *targetContentOffset = CGPointZero;
+        
+        // Need to call this subsequently to remove flickering.
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [scrollView setContentOffset:CGPointZero animated:YES];
+        });
+    }
 }
 
 @end
