@@ -67,16 +67,27 @@
                 "backgroundColor" : "whiteColor",
                 "contentView" : {
                     "layoutBoxes" : [
+                        // Bottom layer is the light grey background
                         {
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
-                                {
-                                    "@class" : "CKHorizontalBoxLayout",
-                                    "layoutBoxes" : [
-                                        { "@class" : "UIView", "name" : "LeftUnderView", "fixedWidth" : 40 },
-                                        { "@class" : "UIView", "name" : "RightUnderView" }
-                                    ]
-                                }
+                                { "@class" : "UIView", "name" : "LeftUnderView" }
+                            ]
+                        },
+                        // Next is the dark gray one, offset by 30 pixels to the left
+                        {
+                            "@class" : "CKVerticalBoxLayout",
+                            "layoutBoxes" : [
+                                { "@class" : "UIView", "name" : "RightUnderView", "marginLeft" : 30 }
+                            ]
+                        },
+                        // On top of that is the right image that follows the scrollview
+                        {
+                            "@class" : "CKVerticalBoxLayout",
+                            "layoutBoxes" : [
+                                { "@class" : "CKLayoutFlexibleSpace" },
+                                { "@class" : "UIImageView", "name" : "RightImage" },
+                                { "@class" : "CKLayoutFlexibleSpace" }
                             ]
                         },
                         {
@@ -93,6 +104,10 @@
 
                     "UIView[name=RightUnderView]" : {
                         "backgroundColor" : "#dedede"
+                    },
+
+                    "UIImageView[name=RightImage]" : {
+                        "image" : "retweet"
                     },
 
                     "UIScrollView[name=CellHorizontalScrollView]" : {
