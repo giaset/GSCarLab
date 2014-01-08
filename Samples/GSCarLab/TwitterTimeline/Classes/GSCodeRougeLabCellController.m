@@ -8,10 +8,20 @@
 
 #import "GSCodeRougeLabCellController.h"
 
+@interface GSCodeRougeLabCellController ()
+
+@property (nonatomic, retain) UIImageView* rightImage;
+@property (nonatomic, assign) CGFloat rightImageOriginalX;
+
+@end
+
 @implementation GSCodeRougeLabCellController
 
 // How far the user has to drag before the cell's horizontal scrollview "catches"
 const int kCatchWidth = 60;
+
+// The left and right margins for the rightImage
+const int kRightImageMargin = 15;
 
 - (id)initWithCar:(GSCodeRougeLabCarModel*)car selectionBlock:(void(^)(GSCodeRougeLabCellController* clickedCellController))selectionBlock
 {
@@ -47,6 +57,7 @@ const int kCatchWidth = 60;
         // Get the views that are under the scrollView
         UIView *leftUnderView = [cell.contentView viewWithKeyPath:@"LeftUnderView"];
         UIView *rightUnderView = [cell.contentView viewWithKeyPath:@"RightUnderView"];
+        bself.rightImage = [cell.contentView viewWithKeyPath:@"RightImage"];
         
         //Get all the labels and images we have to set
         UIImageView *carImage = (UIImageView *)[scrollView viewWithKeyPath:@"CarImage"];
@@ -94,13 +105,29 @@ const int kCatchWidth = 60;
         [cell endBindingsContext];
     }];
     
+    [self setLayoutBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
+        //[controller performLayout];
+        //NSLog(@"rightImage frame = %@", NSStringFromCGRect(bself.rightImage.frame));
+        // Now move this right image to kRightImageMargin pixels offscreen
+        bself.rightImage.frame = CGRectMake(cell.bounds.size.width+kRightImageMargin, bself.rightImage.frame.origin.y, bself.rightImage.frame.size.width, bself.rightImage.frame.size.height);
+        bself.rightImageOriginalX = bself.rightImage.frame.origin.x;
+    }];
+    
     return self;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    // do stuff here
-    NSLog(@"contentOffset = %f", scrollView.contentOffset.x);
+    CGFloat scrolledAmount = scrollView.contentOffset.x;
+    NSLog(@"contentOffset = %f", scrolledAmount);
+    
+    // Move the right image so it keeps up with the scrollView
+    if (scrolledAmount <= (2*kRightImageMargin + self.rightImage.frame.size.width)) {
+        CGFloat oldY = self.rightImage.frame.origin.y;
+        CGFloat oldWidth = self.rightImage.frame.size.width;
+        CGFloat oldHeight = self.rightImage.frame.size.height;
+        self.rightImage.frame = CGRectMake(self.rightImageOriginalX-scrolledAmount, oldY, oldWidth, oldHeight);
+    }
 }
 
 //http://www.teehanlax.com/blog/reproducing-the-ios-7-mail-apps-interface/
