@@ -14,6 +14,12 @@
 		68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */; };
 		6892481718661AD900598AA8 /* GSCarLabDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6892481618661AD900598AA8 /* GSCarLabDataSources.m */; };
 		68AB35D3187C7C5400EA0B74 /* GSCodeRougeLabCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AB35D2187C7C5400EA0B74 /* GSCodeRougeLabCellController.m */; };
+		68CFE8B6187DC3B1007B6517 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B0187DC3B1007B6517 /* favorite.png */; };
+		68CFE8B7187DC3B1007B6517 /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B1187DC3B1007B6517 /* favorite@2x.png */; };
+		68CFE8B8187DC3B1007B6517 /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B2187DC3B1007B6517 /* reply.png */; };
+		68CFE8B9187DC3B1007B6517 /* reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B3187DC3B1007B6517 /* reply@2x.png */; };
+		68CFE8BA187DC3B1007B6517 /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B4187DC3B1007B6517 /* retweet.png */; };
+		68CFE8BB187DC3B1007B6517 /* retweet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B5187DC3B1007B6517 /* retweet@2x.png */; };
 		9604728D163EEB4A00B39F8F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9604728C163EEB4A00B39F8F /* Twitter.framework */; };
 		96047294163EF69A00B39F8F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96047293163EF69A00B39F8F /* Accounts.framework */; };
 		963AB7E6179D68D80076925C /* ResourceManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AB7E5179D68D80076925C /* ResourceManager.framework */; };
@@ -55,6 +61,12 @@
 		6892481618661AD900598AA8 /* GSCarLabDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCarLabDataSources.m; path = Classes/GSCarLabDataSources.m; sourceTree = "<group>"; };
 		68AB35D1187C7C5400EA0B74 /* GSCodeRougeLabCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabCellController.h; path = Classes/GSCodeRougeLabCellController.h; sourceTree = "<group>"; };
 		68AB35D2187C7C5400EA0B74 /* GSCodeRougeLabCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabCellController.m; path = Classes/GSCodeRougeLabCellController.m; sourceTree = "<group>"; };
+		68CFE8B0187DC3B1007B6517 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Resources/favorite.png; sourceTree = "<group>"; };
+		68CFE8B1187DC3B1007B6517 /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favorite@2x.png"; path = "Resources/favorite@2x.png"; sourceTree = "<group>"; };
+		68CFE8B2187DC3B1007B6517 /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reply.png; path = Resources/reply.png; sourceTree = "<group>"; };
+		68CFE8B3187DC3B1007B6517 /* reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reply@2x.png"; path = "Resources/reply@2x.png"; sourceTree = "<group>"; };
+		68CFE8B4187DC3B1007B6517 /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retweet.png; path = Resources/retweet.png; sourceTree = "<group>"; };
+		68CFE8B5187DC3B1007B6517 /* retweet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "retweet@2x.png"; path = "Resources/retweet@2x.png"; sourceTree = "<group>"; };
 		68E611ED1864F20B007754E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9604728C163EEB4A00B39F8F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		96047293163EF69A00B39F8F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -216,6 +228,12 @@
 			children = (
 				6825E8931865617C0018B829 /* car.png */,
 				6825E8941865617C0018B829 /* car@2x.png */,
+				68CFE8B0187DC3B1007B6517 /* favorite.png */,
+				68CFE8B1187DC3B1007B6517 /* favorite@2x.png */,
+				68CFE8B2187DC3B1007B6517 /* reply.png */,
+				68CFE8B3187DC3B1007B6517 /* reply@2x.png */,
+				68CFE8B4187DC3B1007B6517 /* retweet.png */,
+				68CFE8B5187DC3B1007B6517 /* retweet@2x.png */,
 				9691A519158246D400E4E6E8 /* Entitlements.plist */,
 			);
 			name = Resources;
@@ -278,8 +296,14 @@
 				68434FA3186534D300EDB120 /* GSCodeRougeLabViewController.style in Resources */,
 				96951A3115E69AE800408239 /* AppCoreKit.conf in Resources */,
 				6825E8961865617C0018B829 /* car@2x.png in Resources */,
+				68CFE8B7187DC3B1007B6517 /* favorite@2x.png in Resources */,
+				68CFE8B8187DC3B1007B6517 /* reply.png in Resources */,
 				96DC22D417622EE40058BA15 /* UINavigationController.style in Resources */,
 				96DC22D617622F5E0058BA15 /* Stylesheet.style in Resources */,
+				68CFE8BB187DC3B1007B6517 /* retweet@2x.png in Resources */,
+				68CFE8B6187DC3B1007B6517 /* favorite.png in Resources */,
+				68CFE8BA187DC3B1007B6517 /* retweet.png in Resources */,
+				68CFE8B9187DC3B1007B6517 /* reply@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
