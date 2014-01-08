@@ -11,7 +11,7 @@
 @implementation GSCodeRougeLabCellController
 
 // How far the user has to drag before the cell's horizontal scrollview "catches"
-const int kCatchWidth = 80;
+const int kCatchWidth = 60;
 
 - (id)initWithCar:(GSCodeRougeLabCarModel*)car selectionBlock:(void(^)(GSCodeRougeLabCellController* clickedCellController))selectionBlock
 {
