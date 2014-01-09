@@ -62,7 +62,7 @@ const int kRightImageMargin = 15;
         UIView *rightUnderView = [cell.contentView viewWithKeyPath:@"RightUnderView"];
         bself.rightImage = [cell.contentView viewWithKeyPath:@"RightImage"];
         
-        //Get all the labels and images we have to set
+        // Get all the labels and images we have to set in the main cell
         UIImageView *carImage = (UIImageView *)[cellMainContentView viewWithKeyPath:@"CarImage"];
         carImage.image = [UIImage imageNamed:thisCar.imageName];
         
@@ -74,6 +74,19 @@ const int kRightImageMargin = 15;
         
         /*UILabel *timeRemainingLabel = (UILabel *)[cellMainContentView viewWithKeyPath:@"TimeRemainingLabel"];
          timeRemainingLabel.text = thisCar.transmission;*/
+        
+        // Get all the buttons we have to manipulate in the bottomButtonRow
+        UIButton *detailsButton = [cellBottomButtonRow viewWithKeyPath:@"DetailsButton"];
+        [detailsButton setTitle:@"Details" forState:UIControlStateNormal];
+        
+        UIButton *contactButton = [cellBottomButtonRow viewWithKeyPath:@"ContactButton"];
+        [contactButton setTitle:@"Contact" forState:UIControlStateNormal];
+        
+        UIButton *callButton = [cellBottomButtonRow viewWithKeyPath:@"CallButton"];
+        [callButton setTitle:@"Call" forState:UIControlStateNormal];
+        
+        UIButton *freezeButton = [cellBottomButtonRow viewWithKeyPath:@"FreezeButton"];
+        [freezeButton setTitle:@"Freeze" forState:UIControlStateNormal];
         
         void (^setProperAppearance)(void) = ^(void) {
             if (bself.selected) {

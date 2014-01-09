@@ -60,8 +60,11 @@
                     "@class" : "CKHorizontalBoxLayout",
                     "layoutBoxes" : [
                         { "@class" : "UIButton", "name" : "DetailsButton" },
+                        { "@class" : "CKLayoutFlexibleSpace" },
                         { "@class" : "UIButton", "name" : "ContactButton" },
+                        { "@class" : "CKLayoutFlexibleSpace" },
                         { "@class" : "UIButton", "name" : "CallButton" },
+                        { "@class" : "CKLayoutFlexibleSpace" },
                         { "@class" : "UIButton", "name" : "FreezeButton" }   
                     ]
                 }
@@ -77,7 +80,7 @@
                     "padding" : "15 10 15 10",
                     "layoutBoxes" : [
                         { "@class" : "UIView", "name" : "CellMainContentView" },
-                        { "@class" : "UIView", "name" : "CellBottomButtonRow" }
+                        { "@class" : "UIView", "name" : "CellBottomButtonRow", "marginTop" : 10 }
                     ]
                 }
             ],
