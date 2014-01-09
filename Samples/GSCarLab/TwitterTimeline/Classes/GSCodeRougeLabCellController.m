@@ -121,12 +121,18 @@ const int kRightImageMargin = 15;
     CGFloat scrolledAmount = scrollView.contentOffset.x;
     NSLog(@"contentOffset = %f", scrolledAmount);
     
+    CGFloat rightImageY = self.rightImage.frame.origin.y;
+    CGFloat rightImageWidth = self.rightImage.frame.size.width;
+    CGFloat rightImageHeight = self.rightImage.frame.size.height;
+    
+    // After this point, the right image will stop shifting with the scrollview
+    CGFloat scrollThreshold = 2*kRightImageMargin + rightImageWidth;
+    
     // Move the right image so it keeps up with the scrollView
-    if (scrolledAmount <= (2*kRightImageMargin + self.rightImage.frame.size.width)) {
-        CGFloat oldY = self.rightImage.frame.origin.y;
-        CGFloat oldWidth = self.rightImage.frame.size.width;
-        CGFloat oldHeight = self.rightImage.frame.size.height;
-        self.rightImage.frame = CGRectMake(self.rightImageOriginalX-scrolledAmount, oldY, oldWidth, oldHeight);
+    if (scrolledAmount <= scrollThreshold) {
+        self.rightImage.frame = CGRectMake(self.rightImageOriginalX-scrolledAmount, rightImageY, rightImageWidth, rightImageHeight);
+    } else {
+        self.rightImage.frame = CGRectMake(self.rightImageOriginalX-scrollThreshold, rightImageY, rightImageWidth, rightImageHeight);
     }
 }
 
