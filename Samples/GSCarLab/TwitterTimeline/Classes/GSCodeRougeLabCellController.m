@@ -55,6 +55,7 @@ const int kRightImageMargin = 15;
         // Get all the views that form the contentView of our scrollView
         UIView *backgroundView = [scrollView viewWithKeyPath:@"BackgroundView"];
         UIView *cellMainContentView = [scrollView viewWithKeyPath:@"CellMainContentView"];
+        UILabel *loremIpsum = [scrollView viewWithKeyPath:@"LoremIpsum"];
         UIView *cellBottomButtonRow = [scrollView viewWithKeyPath:@"CellBottomButtonRow"];
         
         // Get the views that are under the scrollView
@@ -95,6 +96,7 @@ const int kRightImageMargin = 15;
                 mileageAndTransmissionLabel.textColor = [UIColor whiteColor];
                 leftUnderView.backgroundColor = [UIColor colorWithRGBValue:0x1a1a1a];
                 rightUnderView.backgroundColor = [UIColor colorWithRGBValue:0x262626];
+                loremIpsum.hidden = NO;
                 cellBottomButtonRow.hidden = NO;
             } else {
                 backgroundView.backgroundColor = [UIColor whiteColor];
@@ -102,6 +104,7 @@ const int kRightImageMargin = 15;
                 mileageAndTransmissionLabel.textColor = [UIColor blackColor];
                 leftUnderView.backgroundColor = [UIColor colorWithRGBValue:0xe6e6e6];
                 rightUnderView.backgroundColor = [UIColor colorWithRGBValue:0xdedede];
+                loremIpsum.hidden = YES;
                 cellBottomButtonRow.hidden = YES;
             }
         };
