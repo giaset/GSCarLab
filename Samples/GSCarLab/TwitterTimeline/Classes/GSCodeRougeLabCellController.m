@@ -77,17 +77,37 @@ const int kRightImageMargin = 15;
          timeRemainingLabel.text = thisCar.transmission;*/
         
         // Get all the buttons we have to manipulate in the bottomButtonRow
+        // WTF: not able to target any of this with the stylesheet???
         UIButton *detailsButton = [cellBottomButtonRow viewWithKeyPath:@"DetailsButton"];
         [detailsButton setTitle:@"Details" forState:UIControlStateNormal];
+        detailsButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        detailsButton.backgroundColor = [UIColor lightGrayColor];
+        detailsButton.titleLabel.textColor = [UIColor colorWithRGBValue:0x333333];
+        detailsButton.fixedHeight = 30;
+        detailsButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         
         UIButton *contactButton = [cellBottomButtonRow viewWithKeyPath:@"ContactButton"];
         [contactButton setTitle:@"Contact" forState:UIControlStateNormal];
+        contactButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        contactButton.backgroundColor = [UIColor lightGrayColor];
+        contactButton.titleLabel.textColor = [UIColor colorWithRGBValue:0x333333];
+        contactButton.fixedHeight = 30;
+        contactButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         
         UIButton *callButton = [cellBottomButtonRow viewWithKeyPath:@"CallButton"];
         [callButton setTitle:@"Call" forState:UIControlStateNormal];
+        callButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        callButton.backgroundColor = [UIColor lightGrayColor];
+        callButton.titleLabel.textColor = [UIColor colorWithRGBValue:0x333333];
+        callButton.fixedHeight = 30;
+        callButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         
         UIButton *freezeButton = [cellBottomButtonRow viewWithKeyPath:@"FreezeButton"];
-        [freezeButton setTitle:@"Freeze" forState:UIControlStateNormal];
+        [freezeButton setTitle:@"FREEZE" forState:UIControlStateNormal];
+        freezeButton.backgroundColor = [UIColor whiteColor];
+        [freezeButton setTitleColor:[UIColor colorWithRGBValue:0x333333] forState:UIControlStateNormal];
+        freezeButton.flexibleWidth = YES;
+        freezeButton.fixedHeight = 30;
         
         void (^setProperAppearance)(void) = ^(void) {
             if (bself.selected) {

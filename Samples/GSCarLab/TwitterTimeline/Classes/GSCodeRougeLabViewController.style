@@ -59,12 +59,9 @@
                 {
                     "@class" : "CKHorizontalBoxLayout",
                     "layoutBoxes" : [
-                        { "@class" : "UIButton", "name" : "DetailsButton" },
-                        { "@class" : "CKLayoutFlexibleSpace" },
-                        { "@class" : "UIButton", "name" : "ContactButton" },
-                        { "@class" : "CKLayoutFlexibleSpace" },
-                        { "@class" : "UIButton", "name" : "CallButton" },
-                        { "@class" : "CKLayoutFlexibleSpace" },
+                        { "@class" : "UIButton", "name" : "DetailsButton", "marginRight" : 5 },
+                        { "@class" : "UIButton", "name" : "ContactButton", "marginRight" : 5 },
+                        { "@class" : "UIButton", "name" : "CallButton", "marginRight" : 5 },
                         { "@class" : "UIButton", "name" : "FreezeButton" }   
                     ]
                 }
