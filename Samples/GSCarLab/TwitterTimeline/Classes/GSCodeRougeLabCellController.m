@@ -7,7 +7,6 @@
 //
 
 #import "GSCodeRougeLabCellController.h"
-#import "GSCustomScrollView.h"
 
 @interface GSCodeRougeLabCellController ()
 
@@ -39,7 +38,7 @@ const int kRightImageMargin = 15;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         // Set up the horizontal scrollView that manages the reveal actions on our cell
-        GSCustomScrollView *scrollView = [cell.contentView viewWithKeyPath:@"CellHorizontalScrollView"];
+        UIScrollView *scrollView = (UIScrollView *)[cell.contentView viewWithKeyPath:@"CellHorizontalScrollView"];
         scrollView.contentSize = CGSizeMake(CGRectGetWidth(cell.bounds) + kCatchWidth, scrollView.height);
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.scrollsToTop = NO; // need to do this because if not tapping the status bar to scroll the tableview to the top no longer works...

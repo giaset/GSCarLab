@@ -152,7 +152,7 @@
                         {
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
-                                { "@class" : "GSCustomScrollView", "name" : "CellHorizontalScrollView" }
+                                { "@class" : "UIScrollView", "name" : "CellHorizontalScrollView" }
                             ]
                         }
                     ],
@@ -169,7 +169,7 @@
                         "image" : "retweet"
                     },
 
-                    "GSCustomScrollView[name=CellHorizontalScrollView]" : {
+                    "UIScrollView[name=CellHorizontalScrollView]" : {
                         "@inherits" : [ "$entireCellLayout" ]
                     }
                 }
