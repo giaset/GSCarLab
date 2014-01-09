@@ -98,7 +98,7 @@
                 "textColor" : "whiteColor",
                 "fontSize" : 12,
                 "numberOfLines" : 0,
-                "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut sollicitudin enim. Nulla commodo neque at urna suscipit, ut aliquet nisi adipiscing. Suspendisse ultrices neque ut nulla viverra, ac molestie libero feugiat. Morbi placerat, risus vitae malesuada adipiscing, nisl nunc adipiscing orci, nec lobortis ante mauris et libero. Quisque ut aliquam orci. Nunc sem arcu, varius in neque nec, consequat sodales dolor. Fusce sodales bibendum justo, rhoncus pharetra elit lobortis ac. Fusce pellentesque nulla a mauris condimentum, nec euismod mi posuere. Integer in nibh ac mi facilisis auctor id vel nunc. Duis varius, nunc sit amet fermentum vestibulum, diam nisl semper augue, at bibendum risus lectus in risus. Nunc sit amet diam ac nunc interdum viverra eu id ante. Fusce mattis cursus risus eu scelerisque. Nam eget bibendum nunc. Nam eros lorem, pulvinar eget aliquam at, commodo non justo. Sed quis vestibulum est. Suspendisse potenti."
+                "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut sollicitudin enim. Nulla commodo neque at urna suscipit, ut aliquet nisi adipiscing. Suspendisse ultrices neque ut nulla viverra, ac molestie libero feugiat. Morbi placerat, risus vitae malesuada adipiscing, nisl nunc adipiscing orci, nec lobortis ante mauris et libero."
             },
 
             "UIView[name=CellBottomButtonRow]" : {
