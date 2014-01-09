@@ -7,13 +7,11 @@
             "backgroundColor" : "#333333"
         },
 
-        "$cellContentView" : {
+        "$cellMainContentView" : {
             "@class" : "UIView",
             "layoutBoxes" : [
-                { "@class" : "UIView", "name" : "BackgroundView" },
                 {
                     "@class" : "CKHorizontalBoxLayout",
-                    "padding" : "15 10 15 10",
                     "layoutBoxes" : [
                         { "@class" : "UIImageView", "name" : "CarImage" },
                         {
@@ -34,10 +32,6 @@
                 }
             ],
 
-            "UIView[name=BackgroundView]" : {
-                "backgroundColor" : "whiteColor"
-            },
-
             "UIImageView[name=CarImage]" : {
                 "marginRight" : 10
             },
@@ -56,6 +50,48 @@
                 "text" : "1h30min",
                 "backgroundColor" : "redColor",
                 "textColor" : "whiteColor"
+            }
+        },
+
+        "$cellBottomButtonRow" : {
+            "@class" : "UIView",
+            "layoutBoxes" : [
+                {
+                    "@class" : "CKHorizontalBoxLayout",
+                    "layoutBoxes" : [
+                        { "@class" : "UIButton", "name" : "DetailsButton" },
+                        { "@class" : "UIButton", "name" : "ContactButton" },
+                        { "@class" : "UIButton", "name" : "CallButton" },
+                        { "@class" : "UIButton", "name" : "FreezeButton" }   
+                    ]
+                }
+            ]
+        },
+
+        "$entireCellLayout" : {
+            "@class" : "UIView",
+            "layoutBoxes" : [
+                { "@class" : "UIView", "name" : "BackgroundView" },
+                {
+                    "@class" : "CKVerticalBoxLayout",
+                    "padding" : "15 10 15 10",
+                    "layoutBoxes" : [
+                        { "@class" : "UIView", "name" : "CellMainContentView" },
+                        { "@class" : "UIView", "name" : "CellBottomButtonRow" }
+                    ]
+                }
+            ],
+
+            "UIView[name=BackgroundView]" : {
+                "backgroundColor" : "whiteColor"
+            },
+
+            "UIView[name=CellMainContentView]" : {
+                "@inherits" : [ "$cellMainContentView" ]
+            },
+
+            "UIView[name=CellBottomButtonRow]" : {
+                "@inherits" : [ "$cellBottomButtonRow" ]
             }
         },
         
@@ -126,7 +162,7 @@
                     },
 
                     "UIScrollView[name=CellHorizontalScrollView]" : {
-                        "@inherits" : [ "$cellContentView" ]
+                        "@inherits" : [ "$entireCellLayout" ]
                     }
                 }
             }
