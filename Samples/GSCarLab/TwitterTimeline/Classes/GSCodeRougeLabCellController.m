@@ -50,6 +50,7 @@ const int kRightImageMargin = 15;
         singleTapGestureRecognizer.numberOfTapsRequired = 1;
         singleTapGestureRecognizer.enabled = YES;
         singleTapGestureRecognizer.cancelsTouchesInView = NO;
+        singleTapGestureRecognizer.delegate = bself;
         [scrollView addGestureRecognizer:singleTapGestureRecognizer];
         
         // Get all the views that form the contentView of our scrollView
@@ -80,25 +81,25 @@ const int kRightImageMargin = 15;
         // WTF: not able to target any of this with the stylesheet???
         UIButton *detailsButton = [cellBottomButtonRow viewWithKeyPath:@"DetailsButton"];
         [detailsButton setTitle:@"Details" forState:UIControlStateNormal];
+        [detailsButton setBackgroundColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [detailsButton setBackgroundColor:[UIColor redColor] forState:UIControlStateHighlighted];
         detailsButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        detailsButton.backgroundColor = [UIColor lightGrayColor];
-        detailsButton.titleLabel.textColor = [UIColor colorWithRGBValue:0x333333];
         detailsButton.fixedHeight = 30;
         detailsButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         
         UIButton *contactButton = [cellBottomButtonRow viewWithKeyPath:@"ContactButton"];
         [contactButton setTitle:@"Contact" forState:UIControlStateNormal];
+        [contactButton setBackgroundColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [contactButton setBackgroundColor:[UIColor redColor] forState:UIControlStateHighlighted];
         contactButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        contactButton.backgroundColor = [UIColor lightGrayColor];
-        contactButton.titleLabel.textColor = [UIColor colorWithRGBValue:0x333333];
         contactButton.fixedHeight = 30;
         contactButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         
         UIButton *callButton = [cellBottomButtonRow viewWithKeyPath:@"CallButton"];
         [callButton setTitle:@"Call" forState:UIControlStateNormal];
+        [callButton setBackgroundColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [callButton setBackgroundColor:[UIColor redColor] forState:UIControlStateHighlighted];
         callButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        callButton.backgroundColor = [UIColor lightGrayColor];
-        callButton.titleLabel.textColor = [UIColor colorWithRGBValue:0x333333];
         callButton.fixedHeight = 30;
         callButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         
@@ -195,6 +196,16 @@ const int kRightImageMargin = 15;
     dispatch_async(dispatch_get_main_queue(), ^{
         [scrollView setContentOffset:CGPointZero animated:YES];
     });
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // The gestureRecognizer on our scrollView should ignore touches on the bottom buttons
+    if ([touch.view isKindOfClass:[UIButton class]]) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end

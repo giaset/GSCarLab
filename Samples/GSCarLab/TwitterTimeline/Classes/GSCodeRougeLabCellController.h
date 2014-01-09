@@ -9,7 +9,7 @@
 #import <AppCoreKit/AppCoreKit.h>
 #import "GSCodeRougeLabCarModel.h"
 
-@interface GSCodeRougeLabCellController : CKTableViewCellController <UIScrollViewDelegate>
+@interface GSCodeRougeLabCellController : CKTableViewCellController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) BOOL selected;
 
