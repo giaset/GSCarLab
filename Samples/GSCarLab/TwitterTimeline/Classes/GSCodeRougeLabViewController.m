@@ -62,15 +62,4 @@
     [self addSections:@[section]];
 }
 
-/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat defaultHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
-    
-    if ([indexPath isEqual:self.selectedCellController.indexPath]) {
-        return defaultHeight*2;
-    } else {
-        return defaultHeight;
-    }
-}*/
-
 @end
