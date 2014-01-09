@@ -74,7 +74,22 @@
                                 { "@class" : "UIView", "name" : "LeftUnderView" }
                             ]
                         },
-                        // Next is the dark gray one, offset by 30 pixels to the left
+                        // Next are the two left images
+                        {
+                            "@class" : "CKVerticalBoxLayout",
+                            "layoutBoxes" : [
+                                { "@class" : "CKLayoutFlexibleSpace" },
+                                {
+                                    "@class" : "CKHorizontalBoxLayout",
+                                    "layoutBoxes" : [
+                                        { "@class" : "UIImageView", "name" : "LeftImage1" },
+                                        { "@class" : "UIImageView", "name" : "LeftImage2", "marginLeft" : 20 }
+                                    ]
+                                },
+                                { "@class" : "CKLayoutFlexibleSpace" }
+                            ]
+                        },
+                        // Next is the dark gray background, offset by 30 pixels to the left
                         {
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
@@ -98,12 +113,12 @@
                         }
                     ],
 
-                    "UIView[name=LeftUnderView]" : {
-                        "backgroundColor" : "#e6e6e6"
+                    "UIImageView[name=LeftImage1]" : {
+                        "image" : "reply"
                     },
 
-                    "UIView[name=RightUnderView]" : {
-                        "backgroundColor" : "#dedede"
+                    "UIImageView[name=LeftImage2]" : {
+                        "image" : "favorite"
                     },
 
                     "UIImageView[name=RightImage]" : {
