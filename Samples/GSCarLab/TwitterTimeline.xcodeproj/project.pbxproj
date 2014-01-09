@@ -14,6 +14,7 @@
 		68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68434FA51865367900EDB120 /* GSCodeRougeLabCarModel.m */; };
 		6892481718661AD900598AA8 /* GSCarLabDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6892481618661AD900598AA8 /* GSCarLabDataSources.m */; };
 		68AB35D3187C7C5400EA0B74 /* GSCodeRougeLabCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AB35D2187C7C5400EA0B74 /* GSCodeRougeLabCellController.m */; };
+		68B86FCA187F6084006A3F58 /* GSCustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B86FC9187F6084006A3F58 /* GSCustomScrollView.m */; };
 		68CFE8B6187DC3B1007B6517 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B0187DC3B1007B6517 /* favorite.png */; };
 		68CFE8B7187DC3B1007B6517 /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B1187DC3B1007B6517 /* favorite@2x.png */; };
 		68CFE8B8187DC3B1007B6517 /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CFE8B2187DC3B1007B6517 /* reply.png */; };
@@ -61,6 +62,8 @@
 		6892481618661AD900598AA8 /* GSCarLabDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCarLabDataSources.m; path = Classes/GSCarLabDataSources.m; sourceTree = "<group>"; };
 		68AB35D1187C7C5400EA0B74 /* GSCodeRougeLabCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCodeRougeLabCellController.h; path = Classes/GSCodeRougeLabCellController.h; sourceTree = "<group>"; };
 		68AB35D2187C7C5400EA0B74 /* GSCodeRougeLabCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCodeRougeLabCellController.m; path = Classes/GSCodeRougeLabCellController.m; sourceTree = "<group>"; };
+		68B86FC8187F6084006A3F58 /* GSCustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSCustomScrollView.h; path = Classes/GSCustomScrollView.h; sourceTree = "<group>"; };
+		68B86FC9187F6084006A3F58 /* GSCustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSCustomScrollView.m; path = Classes/GSCustomScrollView.m; sourceTree = "<group>"; };
 		68CFE8B0187DC3B1007B6517 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Resources/favorite.png; sourceTree = "<group>"; };
 		68CFE8B1187DC3B1007B6517 /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favorite@2x.png"; path = "Resources/favorite@2x.png"; sourceTree = "<group>"; };
 		68CFE8B2187DC3B1007B6517 /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reply.png; path = Resources/reply.png; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				68AB35D2187C7C5400EA0B74 /* GSCodeRougeLabCellController.m */,
 				6892481518661AD900598AA8 /* GSCarLabDataSources.h */,
 				6892481618661AD900598AA8 /* GSCarLabDataSources.m */,
+				68B86FC8187F6084006A3F58 /* GSCustomScrollView.h */,
+				68B86FC9187F6084006A3F58 /* GSCustomScrollView.m */,
 				9691A518158246D400E4E6E8 /* Resources */,
 				9691A4FB158246D300E4E6E8 /* Supporting Files */,
 			);
@@ -336,6 +341,7 @@
 				68434FA61865367900EDB120 /* GSCodeRougeLabCarModel.m in Sources */,
 				68434FA2186534D300EDB120 /* GSCodeRougeLabViewController.m in Sources */,
 				9691A501158246D300E4E6E8 /* main.m in Sources */,
+				68B86FCA187F6084006A3F58 /* GSCustomScrollView.m in Sources */,
 				9691A505158246D300E4E6E8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
