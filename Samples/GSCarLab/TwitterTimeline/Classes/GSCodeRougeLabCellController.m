@@ -144,6 +144,11 @@ const int kRightImageMargin = 15;
             }];
         }];
         
+        [callButton bindEvent:UIControlEventTouchUpInside withBlock:^{
+         NSURL* url = [NSURL URLWithString:@"tel://4383816581"];
+         [[UIApplication sharedApplication]openURL:url];
+         }];
+        
         [cell endBindingsContext];
     }];
     
