@@ -15,6 +15,8 @@
 @property (nonatomic, retain) UIImageView* rightImage;
 @property (nonatomic, assign) CGFloat rightImageOriginalX;
 
+@property (nonatomic, assign) GSCellLeftButtonShowing leftButtonShowing;
+
 @end
 
 @implementation GSCodeRougeLabCellController
@@ -35,6 +37,7 @@ const int kLeftImageGap = 20;
     __unsafe_unretained GSCodeRougeLabCellController *bself = self;
     
     self.value = car;
+    self.leftButtonShowing = GSCellLeftButtonShowingNone;
     
     // Setup block
     [self setSetupBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
@@ -126,6 +129,11 @@ const int kLeftImageGap = 20;
                 rightUnderView.backgroundColor = [UIColor colorWithRGBValue:0x262626];
                 loremIpsum.hidden = NO;
                 cellBottomButtonRow.hidden = NO;
+                
+                [bself performBlock:^{
+                    CKFormTableViewController* form =  (CKFormTableViewController*)bself.parentTableViewController ;
+                    [form.tableView scrollToRowAtIndexPath:bself.indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+                } afterDelay:0.5];
             } else {
                 backgroundView.backgroundColor = [UIColor whiteColor];
                 titleLabel.textColor = [UIColor blackColor];
@@ -160,18 +168,14 @@ const int kLeftImageGap = 20;
     }];
     
     [self setLayoutBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
-        //[controller performLayout];
+        
+        UIScrollView *scrollView = (UIScrollView *)[cell.contentView viewWithKeyPath:@"CellHorizontalScrollView"];
+        scrollView.contentSize = CGSizeMake(CGRectGetWidth(cell.bounds) + kCatchWidth, scrollView.height);
         
         // Move the left images just offscreen
         CGFloat widthOfBothImagesPlusMargin = bself.leftImage1.frame.size.width + bself.leftImage2.frame.size.width + kLeftImageGap;
         
-        CGRect leftImage1frame = bself.leftImage1.frame;
-        leftImage1frame.origin.x -= widthOfBothImagesPlusMargin;
-        bself.leftImage1.frame = leftImage1frame;
-        
-        CGRect leftImage2frame = bself.leftImage2.frame;
-        leftImage2frame.origin.x = bself.leftImage1.frame.origin.x + bself.leftImage1.frame.size.width + kLeftImageGap;
-        bself.leftImage2.frame = leftImage2frame;
+        [bself placeLeftImagesAtOriginX:-widthOfBothImagesPlusMargin];
         
         // Now move this right image to kRightImageMargin pixels offscreen
         CGRect rightImageFrame = bself.rightImage.frame;
@@ -183,10 +187,35 @@ const int kLeftImageGap = 20;
     return self;
 }
 
+- (void)placeLeftImagesAtOriginX:(CGFloat)x
+{
+    // First put leftImage1 at the appropriate position
+    CGRect leftImage1frame = self.leftImage1.frame;
+    leftImage1frame.origin.x = x;
+    self.leftImage1.frame = leftImage1frame;
+    
+    // Now place leftImage2 accordingly
+    CGRect leftImage2frame = self.leftImage2.frame;
+    leftImage2frame.origin.x = x + self.leftImage1.frame.size.width + kLeftImageGap;
+    self.leftImage2.frame = leftImage2frame;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat scrolledAmount = scrollView.contentOffset.x;
     NSLog(@"contentOffset = %f", scrolledAmount);
+    
+    // For the left images
+    if (scrolledAmount >= -kCatchWidth/2 && self.leftButtonShowing != GSCellLeftButtonShowingNone) {
+        [self placeLeftImagesAtOriginX:-999];
+        self.leftButtonShowing = GSCellLeftButtonShowingNone;
+    } else if (scrolledAmount < -kCatchWidth/2 && scrolledAmount >= -kCatchWidth && self.leftButtonShowing != GSCellLeftButtonShowingFirst) {
+        [self placeLeftImagesAtOriginX:-38];
+        self.leftButtonShowing = GSCellLeftButtonShowingFirst;
+    } else if (scrolledAmount < -kCatchWidth && self.leftButtonShowing != GSCellLeftButtonShowingSecond) {
+        [self placeLeftImagesAtOriginX:5];
+        self.leftButtonShowing = GSCellLeftButtonShowingSecond;
+    }
     
     CGFloat rightImageY = self.rightImage.frame.origin.y;
     CGFloat rightImageWidth = self.rightImage.frame.size.width;

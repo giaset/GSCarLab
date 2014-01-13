@@ -9,6 +9,12 @@
 #import <AppCoreKit/AppCoreKit.h>
 #import "GSCodeRougeLabCarModel.h"
 
+typedef enum GSCellLeftButtonShowing{
+    GSCellLeftButtonShowingNone,
+    GSCellLeftButtonShowingFirst,
+    GSCellLeftButtonShowingSecond
+}GSCellLeftButtonShowing;
+
 @interface GSCodeRougeLabCellController : CKTableViewCellController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) BOOL selected;

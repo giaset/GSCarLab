@@ -137,11 +137,11 @@
                                 { "@class" : "CKLayoutFlexibleSpace" }
                             ]
                         },
-                        // Next is the dark gray background, offset by 30 pixels to the left
+                        // Next is the dark gray background, offset by 20 pixels to the left
                         {
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
-                                { "@class" : "UIView", "name" : "RightUnderView", "marginLeft" : 30 }
+                                { "@class" : "UIView", "name" : "RightUnderView", "marginLeft" : 20 }
                             ]
                         },
                         // On top of that is the right image that follows the scrollview
