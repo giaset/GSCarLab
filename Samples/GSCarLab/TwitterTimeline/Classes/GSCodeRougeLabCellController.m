@@ -10,6 +10,8 @@
 
 @interface GSCodeRougeLabCellController ()
 
+@property (nonatomic, retain) UIImageView* leftImage1;
+@property (nonatomic, retain) UIImageView* leftImage2;
 @property (nonatomic, retain) UIImageView* rightImage;
 @property (nonatomic, assign) CGFloat rightImageOriginalX;
 
@@ -22,6 +24,9 @@ const int kCatchWidth = 60;
 
 // The left and right margins for the rightImage
 const int kRightImageMargin = 15;
+
+// The gap between both left images
+const int kLeftImageGap = 20;
 
 - (id)initWithCar:(GSCodeRougeLabCarModel*)car selectionBlock:(void(^)(GSCodeRougeLabCellController* clickedCellController))selectionBlock
 {
@@ -62,6 +67,8 @@ const int kRightImageMargin = 15;
         // Get the views that are under the scrollView
         UIView *leftUnderView = [cell.contentView viewWithKeyPath:@"LeftUnderView"];
         UIView *rightUnderView = [cell.contentView viewWithKeyPath:@"RightUnderView"];
+        bself.leftImage1 = [cell.contentView viewWithKeyPath:@"LeftImage1"];
+        bself.leftImage2 = [cell.contentView viewWithKeyPath:@"LeftImage2"];
         bself.rightImage = [cell.contentView viewWithKeyPath:@"RightImage"];
         
         // Get all the labels and images we have to set in the main cell
@@ -154,9 +161,22 @@ const int kRightImageMargin = 15;
     
     [self setLayoutBlock:^(CKTableViewCellController *controller, UITableViewCell *cell) {
         //[controller performLayout];
-        //NSLog(@"rightImage frame = %@", NSStringFromCGRect(bself.rightImage.frame));
+        
+        // Move the left images just offscreen
+        CGFloat widthOfBothImagesPlusMargin = bself.leftImage1.frame.size.width + bself.leftImage2.frame.size.width + kLeftImageGap;
+        
+        CGRect leftImage1frame = bself.leftImage1.frame;
+        leftImage1frame.origin.x -= widthOfBothImagesPlusMargin;
+        bself.leftImage1.frame = leftImage1frame;
+        
+        CGRect leftImage2frame = bself.leftImage2.frame;
+        leftImage2frame.origin.x = bself.leftImage1.frame.origin.x + bself.leftImage1.frame.size.width + kLeftImageGap;
+        bself.leftImage2.frame = leftImage2frame;
+        
         // Now move this right image to kRightImageMargin pixels offscreen
-        bself.rightImage.frame = CGRectMake(cell.bounds.size.width+kRightImageMargin, bself.rightImage.frame.origin.y, bself.rightImage.frame.size.width, bself.rightImage.frame.size.height);
+        CGRect rightImageFrame = bself.rightImage.frame;
+        rightImageFrame.origin.x = cell.bounds.size.width+kRightImageMargin;
+        bself.rightImage.frame = rightImageFrame;
         bself.rightImageOriginalX = bself.rightImage.frame.origin.x;
     }];
     

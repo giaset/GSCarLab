@@ -125,13 +125,15 @@
                             "@class" : "CKVerticalBoxLayout",
                             "layoutBoxes" : [
                                 { "@class" : "CKLayoutFlexibleSpace" },
-                                {
-                                    "@class" : "CKHorizontalBoxLayout",
-                                    "layoutBoxes" : [
-                                        { "@class" : "UIImageView", "name" : "LeftImage1" },
-                                        { "@class" : "UIImageView", "name" : "LeftImage2", "marginLeft" : 20 }
-                                    ]
-                                },
+                                { "@class" : "UIImageView", "name" : "LeftImage1" },
+                                { "@class" : "CKLayoutFlexibleSpace" }
+                            ]
+                        },
+                        {
+                            "@class" : "CKVerticalBoxLayout",
+                            "layoutBoxes" : [
+                                { "@class" : "CKLayoutFlexibleSpace" },
+                                { "@class" : "UIImageView", "name" : "LeftImage2" },
                                 { "@class" : "CKLayoutFlexibleSpace" }
                             ]
                         },
