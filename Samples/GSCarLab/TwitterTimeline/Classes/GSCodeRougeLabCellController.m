@@ -54,6 +54,9 @@ const int kLeftImageGap = 20;
         
         UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithBlock:^(UIGestureRecognizer *gestureRecognizer) {
             selectionBlock(bself);
+            // Little fix because it was possible to click/select the cell while it was scrolled horizontally
+            // and it would stay stuck like that...
+            [scrollView setContentOffset:CGPointZero animated:YES];
         }];
         singleTapGestureRecognizer.numberOfTapsRequired = 1;
         singleTapGestureRecognizer.enabled = YES;
@@ -207,13 +210,13 @@ const int kLeftImageGap = 20;
     
     // For the left images
     if (scrolledAmount >= -kCatchWidth/2 && self.leftButtonShowing != GSCellLeftButtonShowingNone) {
-        [self placeLeftImagesAtOriginX:-999];
+        [self placeLeftImagesAtOriginX:-66];
         self.leftButtonShowing = GSCellLeftButtonShowingNone;
     } else if (scrolledAmount < -kCatchWidth/2 && scrolledAmount >= -kCatchWidth && self.leftButtonShowing != GSCellLeftButtonShowingFirst) {
         [self placeLeftImagesAtOriginX:-38];
         self.leftButtonShowing = GSCellLeftButtonShowingFirst;
     } else if (scrolledAmount < -kCatchWidth && self.leftButtonShowing != GSCellLeftButtonShowingSecond) {
-        [self placeLeftImagesAtOriginX:5];
+        [self placeLeftImagesAtOriginX:4];
         self.leftButtonShowing = GSCellLeftButtonShowingSecond;
     }
     
