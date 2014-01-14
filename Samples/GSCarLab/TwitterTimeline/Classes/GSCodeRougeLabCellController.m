@@ -192,15 +192,17 @@ const int kLeftImageGap = 20;
 
 - (void)placeLeftImagesAtOriginX:(CGFloat)x
 {
-    // First put leftImage1 at the appropriate position
-    CGRect leftImage1frame = self.leftImage1.frame;
-    leftImage1frame.origin.x = x;
-    self.leftImage1.frame = leftImage1frame;
-    
-    // Now place leftImage2 accordingly
-    CGRect leftImage2frame = self.leftImage2.frame;
-    leftImage2frame.origin.x = x + self.leftImage1.frame.size.width + kLeftImageGap;
-    self.leftImage2.frame = leftImage2frame;
+    [UIView animateWithDuration:.15 animations:^{
+        // First put leftImage1 at the appropriate position
+        CGRect leftImage1frame = self.leftImage1.frame;
+        leftImage1frame.origin.x = x;
+        self.leftImage1.frame = leftImage1frame;
+        
+        // Now place leftImage2 accordingly
+        CGRect leftImage2frame = self.leftImage2.frame;
+        leftImage2frame.origin.x = x + self.leftImage1.frame.size.width + kLeftImageGap;
+        self.leftImage2.frame = leftImage2frame;
+    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
