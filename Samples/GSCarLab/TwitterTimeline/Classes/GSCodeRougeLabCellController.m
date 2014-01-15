@@ -210,7 +210,9 @@ const int kLeftImageGap = 20;
     CGFloat scrolledAmount = scrollView.contentOffset.x;
     NSLog(@"contentOffset = %f", scrolledAmount);
     
-    // For the left images
+    // Move the left images appropriately
+    // NB: I USED "MAGIC VALUES" FOR NOW (-66, -38, 4). IN THE FUTURE,
+    // THESE SHOULD BE COMPUTED MORE INTELLIGENTLY
     if (scrolledAmount >= -kCatchWidth/2 && self.leftButtonShowing != GSCellLeftButtonShowingNone) {
         [self placeLeftImagesAtOriginX:-66];
         self.leftButtonShowing = GSCellLeftButtonShowingNone;
