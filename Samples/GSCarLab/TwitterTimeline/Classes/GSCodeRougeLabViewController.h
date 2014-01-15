@@ -8,6 +8,6 @@
 
 #import <AppCoreKit/AppCoreKit.h>
 
-@interface GSCodeRougeLabViewController : CKFormTableViewController
+@interface GSCodeRougeLabViewController : CKFormTableViewController <UIScrollViewDelegate>
 
 @end

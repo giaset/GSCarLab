@@ -25,6 +25,7 @@
         self.cars = [[CKArrayCollection alloc] initWithFeedSource:[GSCarLabDataSources feedSourceForCars]];
         self.selectedCellController = nil;
         [self setup];
+        self.tableView.delegate = self;
     }
     return self;
 }
@@ -60,6 +61,30 @@
     //Setup the section binded to the self.cars collection
     CKFormBindedCollectionSection *section = [CKFormBindedCollectionSection sectionWithCollection:self.cars factory:factory appendSpinnerAsFooterCell:NO];
     [self addSections:@[section]];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat scrolledAmount = scrollView.contentOffset.y;
+    
+    //NSLog(@"%f", scrolledAmount);
+    
+    UINavigationBar* navBar = self.navigationController.navigationBar;
+    CGRect navBarFrame = navBar.frame;
+    CGRect viewFrame = self.view.frame;
+    
+    if (scrolledAmount > 100) {
+        navBarFrame.size.height = 20;
+        viewFrame.size.height = 528;
+        viewFrame.origin.y = 40;
+    } else {
+        navBarFrame.size.height = 44;
+        viewFrame.size.height = 504;
+        viewFrame.origin.y = 64;
+    }
+    [UIView animateWithDuration:0.3 animations:^{
+        [navBar setFrame:navBarFrame];
+        [self.view setFrame:viewFrame];
+    }];
 }
 
 @end
