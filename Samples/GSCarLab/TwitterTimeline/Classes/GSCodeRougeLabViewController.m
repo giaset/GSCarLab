@@ -14,6 +14,7 @@
 @interface GSCodeRougeLabViewController ()
 @property(nonatomic) CKArrayCollection *cars;
 @property(nonatomic,retain) GSCodeRougeLabCellController *selectedCellController;
+@property (nonatomic, assign) BOOL navBarHidden;
 @end
 
 @implementation GSCodeRougeLabViewController
@@ -26,6 +27,7 @@
         self.selectedCellController = nil;
         [self setup];
         self.tableView.delegate = self;
+        _navBarHidden = NO;
     }
     return self;
 }
@@ -66,24 +68,35 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat scrolledAmount = scrollView.contentOffset.y;
     
-    //NSLog(@"%f", scrolledAmount);
+    NSLog(@"%f", scrolledAmount);
     
-    UINavigationBar* navBar = self.navigationController.navigationBar;
-    CGRect navBarFrame = navBar.frame;
-    CGRect viewFrame = self.view.frame;
     
     if (scrolledAmount > 100) {
-        navBarFrame.size.height = 20;
-        viewFrame.size.height = 528;
-        viewFrame.origin.y = 40;
+        if (!self.navBarHidden) {
+            [self setNavBarHidden:YES];
+        }
     } else {
-        navBarFrame.size.height = 44;
-        viewFrame.size.height = 504;
-        viewFrame.origin.y = 64;
+        if (self.navBarHidden) {
+            [self setNavBarHidden:NO];
+        }
     }
+}
+
+-(void)setNavBarHidden:(BOOL)navBarHidden{
+    __unsafe_unretained GSCodeRougeLabViewController *bself = self;
+    
+    UINavigationBar* navBar = self.navigationController.navigationBar;
+    
+    CGRect navBarFrame = navBar.frame;
+    navBarFrame.size.height = (navBarHidden) ? 20 : 44;
+    
     [UIView animateWithDuration:0.3 animations:^{
         [navBar setFrame:navBarFrame];
-        [self.view setFrame:viewFrame];
+        bself.title = (navBarHidden) ? @"" : @"Honda Civic";
+    } completion:^(BOOL finished) {
+        if (finished) {
+            _navBarHidden = navBarHidden;
+        }
     }];
 }
 

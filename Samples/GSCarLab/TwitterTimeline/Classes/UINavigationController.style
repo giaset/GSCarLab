@@ -7,7 +7,7 @@
     
     "UINavigationController" : {
         "navigationBar" : {
-            "translucent" : 0,
+            //"translucent" : 0,
             "barTintColor" : "#f5f5f5",
             "titleView" : {
                 "@inherits" : [ "$navigation_title_label" ],
