@@ -71,7 +71,7 @@
     NSLog(@"%f", scrolledAmount);
     
     
-    if (scrolledAmount > 100) {
+    if (scrolledAmount > 200) {
         if (!self.navBarHidden) {
             [self setNavBarHidden:YES];
         }
@@ -88,7 +88,7 @@
     UINavigationBar* navBar = self.navigationController.navigationBar;
     
     CGRect navBarFrame = navBar.frame;
-    navBarFrame.size.height = (navBarHidden) ? 20 : 44;
+    navBarFrame.size.height = (navBarHidden) ? 0 : 44;
     
     [UIView animateWithDuration:0.3 animations:^{
         [navBar setFrame:navBarFrame];
